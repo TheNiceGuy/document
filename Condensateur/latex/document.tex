@@ -1,0 +1,269 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+\captionsetup{justification=centering}
+\geometry{
+	total={210mm,297mm},
+	left=30mm,
+	right=30mm,
+	top=20mm,
+	bottom=20mm,
+}
+\newcolumntype{;}{X@{}}
+
+\begin{document}
+\input{document_titre.tex}
+\setcounter{page}{2}
+\section{But}
+Vérifier que la relation entre la différence de potentiel aux bornes d’un condensateur et la charge qu’il contient est bien linéaire. Vérifier les lois d’associations (série, parallèle) des condensateurs.\\
+
+\section{Introduction}
+Le potentiel électrique est une grandeur physique permettant de définir l’état électrique d’un point quelconque dans un circuit électrique. La différence de potentiel (ddp) est souvent utilisée pour calculer la variation d’énergie potentielle électrique d’une charge électrique, et de trouver différentes tensions inconnues dans un circuit, soit en parallèle ou en série. Dans le contexte de l’expérience, il faut tracer un graphique de la charge Q accumulée en fonction de la différence de potentiel, aux bornes d’un condensateur, est utilisée afin de vérifier la relation entre ces derniers. De plus, les lois d’associations des condensateurs seront amenées à être expérimentées. En effet, il est possible de déterminer le condensateur équivalent en utilisant les équations appropriées de chaque branchement. 
+
+\begin{equation*}
+\begin{split}
+\text{En série:}    &\quad C_{eq}=\left (\frac{1}{C_{1}}+\frac{1}{C_{2}}+\frac{1}{C_{3}}\cdots\right )^{-1}\\
+\text{En parallèle:}&\quad C_{eq}=\quad C_{1}+C_{2}+C_{3}\cdots
+\end{split}
+\end{equation*}
+
+\section{Résultats}
+\begin{minipage}{0.45\textwidth}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+	\hline
+	\multicolumn{3}{|c|}{$C_{2}$}\\
+	\hline
+	\multicolumn{3}{|c|}{$I_{1}=(93.4\pm 0.5)\mu$A}\\
+	\hline
+	$\Delta V $  & $t$          & Q\\
+	($\pm 0.1$)V & ($\pm 0.1$)s & mC\\
+	\hline
+	$ 0.0$ &   0.0 & $ 0.00\pm 0.01$\\
+	$ 1.0$ &  25.3 & $ 2.36\pm 0.02$\\
+	$ 2.0$ &  51.5 & $ 4.81\pm 0.04$\\
+	$ 3.0$ &  78.1 & $ 7.29\pm 0.05$\\
+	$ 4.0$ & 104.7 & $ 9.78\pm 0.06$\\
+	$ 5.0$ & 131.8 & $12.31\pm 0.08$\\
+	$ 6.0$ & 160.1 & $14.95\pm 0.09$\\
+	$ 7.0$ & 189.0 & $17.6 \pm 0.1 $\\
+	$ 8.0$ & 218.0 & $20.4 \pm 0.1 $\\
+	$ 9.0$ & 277.4 & $23.1 \pm 0.1 $\\
+	$10.0$ & 247.5 & $25.9 \pm 0.2 $\\
+	$11.0$ & 308.0 & $28.8 \pm 0.2 $\\
+	$12.0$ & 338.6 & $31.6 \pm 0.2 $\\
+	$13.0$ & 369.4 & $34.5 \pm 0.2 $\\
+	$14.0$ & 401.9 & $37.5 \pm 0.2 $\\
+	$15.0$ & 433.9 & $40.5 \pm 0.2 $\\
+	$16.0$ & 466.8 & $43.6 \pm 0.2 $\\
+	$17.0$ & 500.3 & $46.7 \pm 0.3 $\\
+	\hline
+\end{tabular}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+	\hline
+	\multicolumn{3}{|c|}{$C_{2}$}\\
+	\hline
+	\multicolumn{3}{|c|}{$I_{2}=(93.5\pm 0.5)\mu$A}\\
+	\hline
+	$\Delta V $  & $t$          & Q\\
+	($\pm 0.1$)V & ($\pm 0.1$)s & mC\\
+	\hline
+	$ 0.0$ &   0.0 & $ 0.00\pm 0.01$\\
+	$ 1.0$ &  13.0 & $ 1.22\pm 0.02$\\
+	$ 2.0$ &  25.5 & $ 2.38\pm 0.02$\\
+	$ 3.0$ &  38.2 & $ 3.57\pm 0.03$\\
+	$ 4.0$ &  50.9 & $ 4.76\pm 0.03$\\
+	$ 5.0$ &  63.9 & $ 5.97\pm 0.04$\\
+	$ 6.0$ &  76.9 & $ 7.19\pm 0.05$\\
+	$ 7.0$ &  90.2 & $ 8.43\pm 0.05$\\
+	$ 8.0$ & 103.5 & $ 9.68\pm 0.06$\\
+	$ 9.0$ & 117.2 & $10.96\pm 0.07$\\
+	$10.0$ & 130.4 & $12.20\pm 0.07$\\
+	$11.0$ & 145.8 & $13.63\pm 0.08$\\
+	$12.0$ & 160.5 & $15.01\pm 0.09$\\
+	$13.0$ & 175.5 & $16.4 \pm 0.1 $\\
+	$14.0$ & 190.5 & $17.8 \pm 0.1 $\\
+	$15.0$ & 206.0 & $19.3 \pm 0.1 $\\
+	$16.0$ & 221.5 & $20.7 \pm 0.1 $\\
+	$17.0$ & 237.5 & $22.2 \pm 0.1 $\\
+	\hline
+\end{tabular}
+\end{center}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+	\hline
+	\multicolumn{3}{|c|}{$C_{s}$}\\
+	\hline
+	\multicolumn{3}{|c|}{$I_{s}=(93.6\pm 0.5)\mu$A}\\
+	\hline
+	$\Delta V $  & $t$          & Q\\
+	($\pm 0.1$)V & ($\pm 0.1$)s & mC\\
+	\hline
+	$ 0.0$ &   0.0 & $ 0.00\pm 0.01$\\
+	$ 1.0$ &   8.8 & $ 0.82\pm 0.01$\\
+	$ 2.0$ &  17.1 & $ 1.60\pm 0.02$\\
+	$ 3.0$ &  25.4 & $ 2.38\pm 0.02$\\
+	$ 4.0$ &  33.8 & $ 3.16\pm 0.03$\\
+	$ 5.0$ &  42.6 & $ 3.99\pm 0.03$\\
+	$ 6.0$ &  51.1 & $ 4.79\pm 0.03$\\
+	$ 7.0$ &  59.9 & $ 5.60\pm 0.04$\\
+	$ 8.0$ &  68.3 & $ 6.39\pm 0.04$\\
+	$ 9.0$ &  77.0 & $ 7.21\pm 0.05$\\
+	$10.0$ &  85.8 & $ 8.03\pm 0.05$\\
+	$11.0$ &  94.8 & $ 8.87\pm 0.06$\\
+	$12.0$ & 103.4 & $ 9.68\pm 0.06$\\
+	$13.0$ & 112.2 & $10.51\pm 0.07$\\
+	$14.0$ & 121.6 & $11.38\pm 0.07$\\
+	$15.0$ & 130.2 & $12.19\pm 0.07$\\
+	$16.0$ & 139.4 & $13.05\pm 0.08$\\
+	$17.0$ & 148.2 & $13.88\pm 0.08$\\
+	\hline
+\end{tabular}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+	\hline
+	\multicolumn{3}{|c|}{$C_{p}$}\\
+	\hline
+	\multicolumn{3}{|c|}{$I_{p}=(303.58\pm 0.05)\mu$A}\\
+	\hline
+	$\Delta V $  & $t$          & Q\\
+	($\pm 0.1$)V & ($\pm 0.1$)s & mC\\
+	\hline
+	$ 0.0$ &  0.00 & $ 0.00\pm 0.03$\\
+	$ 1.0$ &  12.3 & $ 3.75\pm 0.03$\\
+	$ 2.0$ &  24.4 & $ 7.39\pm 0.03$\\
+	$ 3.0$ &  36.5 & $11.08\pm 0.03$\\
+	$ 4.0$ &  48.7 & $14.78\pm 0.03$\\
+	$ 5.0$ &  60.6 & $18.39\pm 0.03$\\
+	$ 6.0$ &  72.9 & $22.13\pm 0.03$\\
+	$ 7.0$ &  85.1 & $25.84\pm 0.03$\\
+	$ 8.0$ &  97.5 & $29.61\pm 0.04$\\
+	$ 9.0$ & 110.0 & $33.38\pm 0.04$\\
+	$10.0$ & 122.7 & $37.24\pm 0.04$\\
+	$11.0$ & 135.3 & $41.07\pm 0.04$\\
+	$12.0$ & 148.3 & $45.02\pm 0.04$\\
+	$13.0$ & 160.8 & $48.83\pm 0.04$\\
+	$14.0$ & 173.7 & $52.72\pm 0.04$\\
+	$15.0$ & 187.0 & $56.77\pm 0.04$\\
+	$16.0$ & 200.2 & $60.78\pm 0.04$\\
+	$17.0$ & 214.2 & $65.02\pm 0.04$\\
+	\hline
+\end{tabular}
+\end{center}
+\end{minipage} 
+
+\begin{figure}[H]
+    \centering
+    \vspace*{-0.60in}
+    \hspace*{-0.30in}
+    \includegraphics[scale=0.6]{../graph/graph_embed.pdf}
+    \caption*{Graphique 1}
+\end{figure}
+
+\section{Analyse}
+D’après le graphique, on remarque les 4 séries de données ont des tendances linéaires. Cela est logique, car la pente de la droite charge accumulée en fonction de la tension représente la capacité d’un condensateur. En effet, le taux de variation est constant, car la capacité d’un condensateur est une constante qui dépend de d’autres facteurs (entre autres, la distance entre les armatures ou encore, la capacité diélectrique utilisé).\\
+
+Donc, obtient une valeur de $(2.75\pm 0.05)$mF et $(1.30\pm 0.05)$mF pour le condensateur 1 et 2 respectivement. Lorsqu'ils sont en série ou en parallèle, les capacités sont de $(0.82\pm 0.05)$mF et $(3.80\pm 0.05)$mF.\pagebreak
+
+À partir des capacités individuelles, on obtient des capacités théoriques de $(0.88\pm 0.03)$mF et $(4.0\pm 0.1)$mF pour les associations en série et en parallèle. La capacité théorique de l'association en série partage une plage de valeur avec le résultat expérimental. Par contre, l'association en parallèle ne semble par correspondre à celle expérimentale. Malgré l'écart relatif d'environ 5\% (dû aux causes d'erreurs), les lois d'associations des condensateurs semblent être respectées.
+
+\section{Conclusion}
+Pour conclure, la différence de potentiel aux bornes d’un condensateur et la charge qu’il contient est bien linéaire. De plus, les lois d’associations (série, parallèle) des condensateurs ont été confirmées. Par contre, l’association en parallèle ne semble pas correspondre à celle expérimentale. En effet quelques causes d’erreurs peuvent avoir influencé les résultats. Pour commencer, les condesateurs n'étaient pas complétement chargé. Il n'est alors pas possible de savoir si la capacité est linéaire ou non constante. D'une manière semblable, il n'était pas possible de savoir si le condesateur était complètement déchargé avec les instruments utilisés, car il est tout a fait possible que le condensateur soit chargé au départ et que la charge accumulée soit trop petite pour être lue par l'appareil. De plus, le courant émit par le bloc d'alimentation (qui alimente la source de courant) n'est pas nécessairement constant. Malgré les causes précédentes, l’écart peut être négligé et la théorie confirmée. Au final, les circuits parallèles et en séries présentent des caractéristiques qui leur sont bien propres et sont donc utilisées dans diverses situations selon la performance recherchée.
+
+\section{Annexe}
+\bf Calcul de la charge accumulée:
+\begin{equation*}
+\begin{split}
+       Q&= I\cdot t\\
+        &= (93.4\times 10^{-6})\cdot 25.3\\
+        &\approx (2.36\times 10^{-3})\mathrm C\\
+\delta Q&= t\cdot\delta I+I\cdot\delta t\\
+        &= 25.3\cdot (0.1\times 10^{-6})+(9.34\times 10^{-6})\cdot 0.1\\
+        &\approx (0.02\times 10^{-6})\mathrm C\\
+\end{split}
+\end{equation*}
+\bf Calcul de l'association des condensateurs en série:
+\begin{equation*}
+\begin{split}
+       C_{s}&= \left (\frac{1}{C_{1}}+\frac{1}{C_{2}}\right )^{-1}\\
+            &= \left (\frac{1}{(2.75\times 10^{-3})}+\frac{1}{(1.30\times 10^{-3})}\right )^{-1}\\
+            &\approx (0.88\times 10^{-3})\mathrm F\\
+\end{split}
+\end{equation*}
+
+\begin{equation*}
+\begin{split}
+\delta C_{s}&= \frac{\delta C_{1}}{\left (\frac{1}{C_{1}}+\frac{1}{C_{2}}\right )^{2}\cdot C_{1}^{2}}+
+               \frac{\delta C_{2}}{\left (\frac{1}{C_{1}}+\frac{1}{C_{2}}\right )^{2}\cdot C_{2}^{2}}\\
+            &= \frac{(0.05\times 10^{-3})}{\left (\frac{1}{(2.75\times 10^{-3})}+
+               \frac{1}{(1.30\times 10^{-3})}\right )^{2}\cdot (2.75\times 10^{-3})^{2}}\\
+            &+ \frac{(0.05\times 10^{-3})}{\left (\frac{1}{(2.75\times 10^{-3})}+
+               \frac{1}{(1.30\times 10^{-3})}\right )^{2}\cdot (1.30\times 10^{-3})^{2}}\\
+            &\approx (0.03\times 10^{-3})\mathrm F\\
+\end{split}
+\end{equation*}
+\bf Calcul de l'association des condensateurs en parallèle:
+\begin{equation*}
+\begin{split}
+       C_{p}&= C_{1}+C_{2}\\
+            &= (2.75\times 10^{-3})+(1.30\times 10^{-3})\\
+            &= (4.0\times 10^{-3})\mathrm F\\
+\delta C_{p}&= \delta C_{1}+\delta C_{2}\\
+            &= (0.05\times 10^{-3})+(0.05\times 10^{-3})\\
+            &= (0.1\times 10^{-3})\mathrm F\\
+\end{split}
+\end{equation*}
+\bf Calcul d'une pente de la charge en fonction de la différence de potentiel:
+\begin{minipage}{0.45\textwidth}
+\begin{center}
+\begin{equation*}
+\begin{split}
+ C_{max}&= \frac{\delta Q_{max}}{\delta\Delta V_{min}}\\
+        &= \frac{2.57\times 10^{-3}}{0.8}\\
+        &= (3.21\times 10^{-3})\mathrm F\\
+        &\\
+ C_{moy}&= \frac{Q_{max}+Q_{min}}{2}\\
+        &= \frac{(3.21+1.99)\times 10^{-3}}{2}\\
+        &= (2.6\times 10^{-3})\mathrm F\\
+\end{split}
+\end{equation*}
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+\begin{center}
+\begin{equation*}
+\begin{split}
+       C_{min}&= \frac{\delta Q_{min}}{\delta\Delta V_{max}}\\
+              &= \frac{2.39\times 10^{-3}}{1.2}\\
+              &= (1.99\times 10^{-3})\mathrm F\\
+              &\\
+\delta C_{moy}&= \frac{Q_{max}-Q_{min}}{2}\\
+              &= \frac{(3.21-1.99)\times 10^{-3}}{2}\\
+              &= (0.6\times 10^{-3})\mathrm F\\
+\end{split}
+\end{equation*}
+\end{center}
+\end{minipage}
+\end{document}

@@ -1,0 +1,100 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+\captionsetup{justification=centering}
+\geometry{
+	total={210mm,297mm},
+	left=30mm,
+	right=30mm,
+	top=30mm,
+	bottom=30mm,
+}
+\newcolumntype{;}{X@{}}
+
+\begin{document}
+\input{document_titre.tex}
+\setcounter{page}{2}
+\section{But}
+Tracer les lignes de champ électrique pour deux configurations de charges différentes à partir du tracé des équipotentielles. En déduire le champ électrique entre les électrodes. Comparer les résultats obtenus à ceux attendus pour des configurations électroniques de ces types.\\
+
+\section{Introduction}
+Les équipotentielles d’un champ électrique ($\vec{E}$) sont des surfaces où le potentiel électrique est le même partout. Par le fait même, elles ne peuvent pas se couper, car cela laisserait la possibilité d'avoir plusieurs voltages différents en un même point. À notre avantage, ces surfaces sont perpendiculaires aux lignes de champ $\vec{E}$. Il est donc convivial de trouver les équipotentielles avant de tracer les lignes. Afin de déterminer une surface équipotentielle, il faut découvrir tous les points ayant la même valeur de tension grâce à un multimètre et d’une sonde. Une fois les surfaces trouvées, il est facile de tracer les lignes du champ $\vec{E}$. Par définition, plus le champ $\vec{E}$ est important dans une région donnée, plus les lignes sont rapprochées (ou dense). Aussi, un champ $\vec{E}$ est uniforme lorsque son module et sa direction sont constants. Le champ $\vec{E}$ entre deux points peut être estimé par la formule:
+
+\begin{equation}
+E_{x}=-\frac{\Delta V}{\Delta x}
+\end{equation}
+
+\section{Résultats}
+\begin{center}
+\textbf{\large{Tableau 1: Potentiel V en fonction de la \\distance équipotentielle x sur l'axe central}}
+\begin{tabularx}{0.7\linewidth}{|;c;|;c;||;c;|;c;|}
+	\hline
+	\multicolumn{6}{|c||}{\bf Dipôle} & \multicolumn{6}{c|}{\bf Plaques Parallèles}\\
+	\hline
+	& $x$           &&& $V$          &&& $x$           &&& $V$          &\\
+	& (cm$\pm 0.1$) &&& (V$\pm 0.1$) &&& (cm$\pm 0.1$) &&& (V$\pm 0.1$) &\\
+	\hline
+	& 0.00 &&& 0.00 &&& 0.00 &&& 0.00 &\\
+	& 0.80 &&& 1.00 &&& 0.70 &&& 1.00 &\\
+	& 2.10 &&& 2.00 &&& 1.40 &&& 1.50 &\\
+	& 3.20 &&& 3.00 &&& 1.90 &&& 2.00 &\\
+	& 4.60 &&& 4.00 &&& 2.70 &&& 2.50 &\\
+	& 5.90 &&& 5.00 &&& 3.40 &&& 3.00 &\\
+	& 6.70 &&& 6.00 &&& 4.20 &&& 3.50 &\\
+	& 	   &&&      &&& 4.90 &&& 4.00 &\\
+	& 	   &&&      &&& 5.60 &&& 4.50 &\\
+	& 	   &&&      &&& 6.20 &&& 5.00 &\\
+	& 	   &&&      &&& 6.80 &&& 6.00 &\\
+	\hline
+\end{tabularx}
+\end{center}
+
+\begin{figure}[H]
+    \centering
+    \vspace*{-0.60in}
+    \hspace*{-0.30in}
+    \includegraphics[scale=0.6]{../graph/graph_embed.pdf}
+    \caption*{Graphique 1: La courbe rouge met l'accent sur la légère courbure des données. Par contre, son équation empirique ne représente pas nécessairement la distribution du potentiel sur l'axe central.}
+\end{figure}
+
+\section{Analyse}
+Plusieurs facteurs perturbent les incertitudes estimées. Entre autres, le multimètre ne donnait pas des mesures constantes. Ou encore, lorsqu'un potentiel était trouvé, il était difficile de marquer exactement le point trouvé, car le trou de la sonde était assez large.\\
+
+Les dessins sont représentatifs puisqu’ils s’apparentent à la forme prévue (figure 1 et 2). En effet, il est possible d’observer la direction du champ $\vec{E}$ partant de l’électrode positive vers l’électrode négative. En étudiant l’axe central dans le dipôle, on remarque que les lignes dans cette région sont courbées, donc le champ $\vec{E}$ ne serait pas constant dans cette partie. Le graphique 1 appuie cette hypothèse, car la pente de la courbe créer n’est pas constante.\pagebreak
+
+\begin{minipage}{0.45\textwidth}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.55]{../figure/champ_E_dipole.eps}
+    \caption{Champ $\vec{E}$ attendu dans un dipôle}
+\end{figure}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{../figure/champ_E_plaques.eps}
+    \caption{Champ $\vec{E}$ attendu entre deux plaques parallèles}
+\end{figure}
+\end{minipage}\\
+
+Le graphique 1 permet aussi de déduire que le champ $\vec{E}$ est le plus fort lorsqu’il est le plus proche des électrodes puisque les pentes sont maximales à ces points. En effet, les charges négatives dans l’électrode négative ont tendances à aller vers un potentiel plus élevé. Tandis que les charges positives vont vers l’électrode avec le potentiel le plus bas.\\
+
+Dans le cas des plaques parallèles, elles peuvent être comparées à des plans infinis lorsqu’une région infiniment petite au centre est considérée entre les plaques (l'axe central). Dans un tel cas, le champ $\vec{E}$ dans cette région est constant. Non seulement les lignes sont droites, mais les distances entre les équipotentielles semblent constantes. La droite tendance dans le graphique 1 confirme que le champ $\vec{E}$ est constant dans cette région. Plus l'on s'éloigne de l'axe central, moins que les plaques sont symétriques. Alors, le champ n'est plus uniforme.\\
+
+\section{Conclusion}
+Pour conclure, le champ $\vec{E}$ tracé à partir des équipotentielles correspond à celle attendue dans le cas du dipôle. Par contre, les plaques parallèles ne se comparent pas à deux plans infinis sauf si l'on considère une région infiniment petite sur l'axe central. Autre que les causes d'incertitudes mentionnées, l'expérience compte des causes d'erreurs. Puisque les plaques utilisées sont usées, le champ $\vec{E}$ et les mesures peuvent être influencés dans certaines régions. Bref, on sait que le champ $\vec{E}$ compte beaucoup d'utilités. Entre autres, on peut calculer la capacité d'un condensateur plan en utilisant une approximation des plans infinis comme dans notre expérience.\\
+
+
+
+\end{document}
