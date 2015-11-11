@@ -1,0 +1,273 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{gensymb}
+\usepackage{mathtools}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx}
+\usepackage{geometry}
+\usepackage[table]{xcolor}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{textcomp}
+\usepackage{ragged2e}
+\usepackage{lettrine}
+\usepackage{lmodern}
+\usepackage{fp}
+%\usepackage{mathptmx}
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\mathtoolsset{showonlyrefs}
+\sisetup{output-decimal-marker={,}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{A}{X}
+\newcolumntype{a}{@{}l@{}}
+\geometry{
+	letterpaper,
+	left=42mm,
+	right=42mm,
+	top=42mm,
+	bottom=42mm,
+	heightrounded,
+}
+
+\newcommand{\g}{\ensuremath{\,\textrm{g}}}
+\newcommand{\gmol}{\ensuremath{\,\textrm{g/mol}}}
+\newcommand{\ml}{\ensuremath{\,\textrm{ml}}}
+\newcommand{\mol}{\ensuremath{\,\textrm{mol}}}
+\newcommand{\mmol}{\ensuremath{\,\textrm{mmol}}}
+\newcommand{\M}{\ensuremath{\,\textrm{mol/L}}}
+\newcommand{\percent}{\ensuremath{\,\textrm{\%}}}
+\newcommand{\ps}{\vspace{.2\baselineskip}}
+
+\newenvironment{nscenter}
+	{\parskip=0pt\par\nopagebreak\centering}
+	{\par\noindent\ignorespacesafterend}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% CALCULS MATHÉMATIQUES %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\MasseMolaireZn{65.38}%g/mol
+\def\MasseMolaireCu{63.546}%g/mol
+\def\LimitantMasseZn{0.124}%g
+\def\LimitantMasseMontage{90.109}%g
+\def\LimitantMasseMontageCu{90.212}%g
+\def\ExcesMasseZn{0.528}%g
+\def\ExcesMasseMontage{150.639}%g
+\def\ExcesMasseMontageCu{150.950}%g FIXME
+\def\SolutionVolume{50.00}%ml
+\def\SolutionConcentration{0.150}%mol/L
+
+\FPeval{\QuantiteSolution}{round(\SolutionVolume*\SolutionConcentration,2)}%mmol
+\FPeval{\LimitantMasseCu}{round(\LimitantMasseMontageCu-\LimitantMasseMontage,3)}%g
+\FPeval{\LimitantQuantiteZn}{round(\LimitantMasseZn/\MasseMolaireZn*1000,2)}%mmol
+\FPeval{\LimitantQuantiteCuTheorique}{round(\LimitantQuantiteZn,2)}%mmol
+\FPeval{\LimitantQuantiteCuExperimental}{round(\LimitantMasseCu/\MasseMolaireCu*1000,2)}%mmol
+\FPeval{\LimitantRendement}{round(\LimitantQuantiteCuExperimental/\LimitantQuantiteCuTheorique*100,1)}
+\FPeval{\ExcesMasseCu}{round(\ExcesMasseMontageCu-\ExcesMasseMontage,3)}%g
+\FPeval{\ExcesQuantiteZn}{round(\ExcesMasseZn/\MasseMolaireZn*1000,2)}%mmol
+\FPeval{\ExcesQuantiteCuTheorique}{round(\QuantiteSolution,2)}%mmol
+\FPeval{\ExcesQuantiteCuExperimental}{round(\ExcesMasseCu/\MasseMolaireCu*1000,2)}%mmol
+\FPeval{\ExcesRendement}{round(\ExcesQuantiteCuExperimental/\ExcesQuantiteCuTheorique*100,1)}
+
+\begin{document}
+\input{document_titre.tex}
+%%%%%%%%%%%%%%%%
+% INTRODUCTION %
+%%%%%%%%%%%%%%%%
+La\\
+
+
+\section*{Mesures et résultats}
+%%%%%%%%%%%%%%%%%%%%%%%
+% TABLEAU DES MESURES %
+%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{-3mm}\noindent\setlength\tabcolsep{0pt}
+\begin{center}
+\begin{tabularx}{{\textwidth}}{lX}
+	  \textbf{Tableau des mesures : }
+	& masses de \ce{Zn} et du montage incluant le \ce{Cu}\\
+\end{tabularx}
+\begin{tabularx}{{\textwidth}}{@{}|XCX|XS[table-format=1.2]X|XS[table-format=1.2]X|@{}}
+\hline
+	&&& \multicolumn{3}{c|}{Filtration par gravité}
+	&   \multicolumn{3}{c|}{Filtration sous vide}\\
+	&&& \multicolumn{3}{c|}{\textbf{Zinc limitant}}
+	&   \multicolumn{3}{c|}{\textbf{Zinc en excès}}\\
+\hline
+	    \multicolumn{3}{|c|}{\parbox[c]{5.5cm}{\ps\centering \ce{Zn}\\(g)\ps}}
+	&&  \LimitantMasseZn
+	&&& \ExcesMasseZn&\\
+\hline
+	    \multicolumn{3}{|c|}{\parbox[c]{5.5cm}{\ps\centering Montage\\(g)\ps}}
+	&&  \LimitantMasseMontage
+	&&& \ExcesMasseMontage&\\
+\hline
+	    \multicolumn{3}{|c|}{\parbox[c]{5.5cm}{\ps\centering Montage+\ce{Cu}\\(g)\ps}}
+	&&  \LimitantMasseMontageCu
+	&&& \ExcesMasseMontageCu&\\
+\hline
+\end{tabularx}
+%\begin{tabularx}{{\textwidth}}{@{}|XCX|XS[table-format=3.3]X|@{}}
+%\hline
+%	&&& \multicolumn{3}{ c|}{Masse}\\
+%	    \multicolumn{3}{|c|}{Matériel}
+%	&   \multicolumn{3}{ c|}{(g)}\\
+%	&&& \multicolumn{3}{ c|}{$\pm0,001$}\\
+%\hline
+%       \multicolumn{6}{|c|}{Filtration par gravité}\\
+%       \multicolumn{6}{|c|}{\textbf{Zinc limitant}}\\
+%\hline
+%	   \multicolumn{3}{|c|}{\ce{Zn}}
+%	&& \LimitantMasseZn&\\
+%\hline
+%	   \multicolumn{3}{|c|}{Papier filtre+Verre de montre}
+%	&& \LimitantMasseMontage&\\
+%\hline
+%	   \multicolumn{3}{|c|}{Papier filtre+Verre de montre+\ce{Cu}}
+%	&& \LimitantMasseMontageCu&\\
+%\hline
+%       \multicolumn{6}{|c|}{Filtration sous vide}\\
+%       \multicolumn{6}{|c|}{\textbf{Zinc en excès}}\\
+%\hline
+%	   \multicolumn{3}{|c|}{\ce{Zn}}
+%	&& \ExcesMasseZn&\\
+%\hline
+%	   \multicolumn{3}{|c|}{Papier filtre+Büchner+Capsule}
+%	&& \ExcesMasseMontage&\\
+%\hline
+%	   \multicolumn{3}{|c|}{Papier filtre+Büchner+Capsule+\ce{Cu}}
+%	&& \ExcesMasseMontageCu&\\
+%\hline
+%\end{tabularx}
+\justifying\textbf{Volume de la solution de \ce{CuSO4} :} $(\num\SolutionVolume\pm0,05)\ml$\\
+\justifying\textbf{Concentration de la solution de \ce{CuSO4} :} $(\num\SolutionConcentration\pm0,001)\M$
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% TABLEAU DES RÉSULTATS %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent\setlength\tabcolsep{0pt}
+\begin{center}
+\begin{tabularx}{{\textwidth}}{lX}
+	  \textbf{Tableau des résultats : }
+	& quantités de \ce{Zn}, \ce{CuSO4} et \ce{Cu}, et \% de rendement\\
+\end{tabularx}
+\begin{tabularx}{{\textwidth}}{@{}|XCX|XS[table-format=1.2]X|XS[table-format=1.2]X|@{}}
+\hline
+	&&& \multicolumn{3}{c|}{Filtration par gravité}
+	&   \multicolumn{3}{c|}{Filtration sous vide}\\
+	&&& \multicolumn{3}{c|}{\textbf{Zinc limitant}}
+	&   \multicolumn{3}{c|}{\textbf{Zinc en excès}}\\
+\hline
+	    \multicolumn{3}{|c|}{\parbox[c]{5.5cm}{\ps\centering Quantité de \ce{Zn}\\(mmol)\ps}}
+	&&  \LimitantQuantiteZn
+	&&& \ExcesQuantiteZn&\\
+\hline
+	    \multicolumn{3}{|c|}{\parbox[c]{5.5cm}{\ps\centering Quantité de \ce{CuSO4}\\(mmol)\ps}}
+	&   \multicolumn{6}{ c|}{\QuantiteSolution}\\
+\hline
+\hline
+	    \multicolumn{3}{|c|}{\parbox[c]{5.5cm}{\ps\centering Quantité de \ce{Cu} théorique\\(mmol)\ps}}
+	&&  \LimitantQuantiteCuTheorique
+	&&& \ExcesQuantiteCuTheorique&\\
+\hline
+	    \multicolumn{3}{|c|}{\parbox[c]{5.5cm}{\ps\centering Quantité de \ce{Cu} expérimentale\\(mmol)\ps}}
+	&&  \LimitantQuantiteCuExperimental
+	&&& \ExcesQuantiteCuExperimental&\\
+\hline
+\hline
+	    \multicolumn{3}{|c|}{\% de rendement}
+	&&  \parbox[c]{3cm}{\centering \num\LimitantRendement}
+	&&& \parbox[c]{3cm}{\centering \num\ExcesRendement}&\\
+\hline
+\end{tabularx}
+\end{center}
+
+\section*{Calculs}
+%%%%%%%%%%%%%%%%%%%%%%%
+% CALCULS - PARTIE SV %
+%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Filtration sous vide}
+\begin{enumerate}
+{\bfseries\item Nombre de mol de \ce{Zn}}
+\begin{equation*}
+\begin{split}
+\mathrm{n_{\ce{Zn}}}&=\frac{\mathrm{m_{\ce{Zn}}}}{\mathrm{MM_{\ce{Zn}}}}\\
+	                &=\frac{\num\ExcesMasseZn\g}{\num\MasseMolaireZn\gmol}\\
+	                &=\num\ExcesQuantiteZn\mmol\\
+\end{split}
+\end{equation*}
+
+{\bfseries\item Nombre de mol de \ce{CuSO4}}
+\begin{equation*}
+\begin{split}
+\mathrm{n_{\ce{CuSO4}}}&=\mathrm{V_{\ce{CuSO4}}\cdot C_{\ce{CuSO4}}}\\
+	                   &=\num\SolutionVolume\ml\cdot \num\SolutionConcentration\M\\
+	                   &=\num\QuantiteSolution\mmol\\
+\end{split}
+\end{equation*}
+
+{\bfseries\item Nombre de mol de \ce{Cu} théorique produite par le \ce{Zn}}
+\begin{equation*}
+\begin{split}
+\mathrm{n_{\ce{Cu}}}&=\mathrm{n_{\ce{Zn}}}\cdot\frac{\mathrm{coef_{\ce{Cu}}}}{\mathrm{coef_{\ce{Zn}}}}\\
+	                &=\num\ExcesQuantiteZn\mmol\cdot\frac{1\mol}{1\mol}\\
+	                &=\num\ExcesQuantiteZn\mmol\\
+\end{split}
+\end{equation*}
+
+{\bfseries\item Nombre de mol de \ce{Cu} théorique produite par le \ce{CuSO4}}
+\begin{equation*}
+\begin{split}
+\mathrm{n_{\ce{Cu}}}&=\mathrm{n_{\ce{CuSO4}}}\cdot\frac{\mathrm{coef_{\ce{Cu}}}}{\mathrm{coef_{\ce{CuSO4}}}}\\
+	                &=\num\QuantiteSolution\mmol\cdot\frac{1\mol}{1\mol}\\
+	                &=\num\QuantiteSolution\mmol\\
+\end{split}
+\end{equation*}
+
+{\bfseries\item Masse de \ce{Cu} expérimentale}
+\begin{equation*}
+\begin{split}
+\mathrm{m_{\ce{Cu}}}&=\mathrm{m_{\text{papier filtre+büchner+capsule+\ce{Cu}}}
+                     -\mathrm{m_{\text{papier filtre+büchner+capsule}}}}\\
+	                &=\num\ExcesMasseMontageCu\g-\num\ExcesMasseMontage\g\\
+	                &=\num\ExcesMasseCu\g\\
+\end{split}
+\end{equation*}
+
+{\bfseries\item Nombre de mol de \ce{Cu} expérimental}
+\begin{equation*}
+\begin{split}
+\mathrm{n_{\ce{Cu}}}&=\frac{\mathrm{m_{\ce{Cu}}}}{\mathrm{MM_{\ce{Cu}}}}\\
+	                &=\frac{\num\ExcesMasseCu\g}{\num\MasseMolaireCu\gmol}\\
+	                &=\num\ExcesQuantiteCuExperimental\mmol\\
+\end{split}
+\end{equation*}
+
+{\bfseries\item Rendement de la réaction}
+\begin{equation*}
+\begin{split}
+\textrm{\% de rendement}&=\frac{\mathrm{n_{\text{\ce{Cu} expérimental}}}}
+                               {\mathrm{n_{\text{\ce{Cu} théorique}}}}
+                               \times 100\\
+                        &=\frac{\num\ExcesQuantiteCuExperimental\mmol}{\num\ExcesQuantiteCuTheorique\mmol}
+                               \times 100\\
+                        &=\num\ExcesRendement\percent
+\end{split}
+\end{equation*}
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%
+% DISCUSSION %
+%%%%%%%%%%%%%%
+\section*{Discussion}
+
+
+%%%%%%%%%%%%%%
+% CONCLUSION %
+%%%%%%%%%%%%%%
+\section*{Conclusion}
+\end{document}
