@@ -25,8 +25,8 @@
 \newcolumntype{a}{@{}l@{}}
 \geometry{
 	letterpaper,
-	left=42mm,
-	right=42mm,
+	left=36mm,
+	right=36mm,
 	top=42mm,
 	bottom=42mm,
 	heightrounded,
@@ -41,10 +41,6 @@
 \newcommand{\percent}{\ensuremath{\,\textrm{\%}}}
 \newcommand{\ps}{\vspace{.2\baselineskip}}
 
-\newenvironment{nscenter}
-	{\parskip=0pt\par\nopagebreak\centering}
-	{\par\noindent\ignorespacesafterend}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%
 % CALCULS MATHÉMATIQUES %
 %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -55,7 +51,7 @@
 \def\LimitantMasseMontageCu{90.212}%g
 \def\ExcesMasseZn{0.528}%g
 \def\ExcesMasseMontage{150.639}%g
-\def\ExcesMasseMontageCu{150.950}%g FIXME
+\def\ExcesMasseMontageCu{150.980}%g FIXME
 \def\SolutionVolume{50.00}%ml
 \def\SolutionConcentration{0.150}%mol/L
 
@@ -76,71 +72,39 @@
 %%%%%%%%%%%%%%%%
 % INTRODUCTION %
 %%%%%%%%%%%%%%%%
-La\\
+\section*{Introduction}
 
-
-\section*{Mesures et résultats}
 %%%%%%%%%%%%%%%%%%%%%%%
 % TABLEAU DES MESURES %
 %%%%%%%%%%%%%%%%%%%%%%%
+\section*{Mesures et résultats}
 \vspace{-3mm}\noindent\setlength\tabcolsep{0pt}
 \begin{center}
 \begin{tabularx}{{\textwidth}}{lX}
 	  \textbf{Tableau des mesures : }
 	& masses de \ce{Zn} et du montage incluant le \ce{Cu}\\
 \end{tabularx}
-\begin{tabularx}{{\textwidth}}{@{}|XCX|XS[table-format=1.2]X|XS[table-format=1.2]X|@{}}
+\begin{tabularx}{{\textwidth}}{@{}|XCX|XS[table-format=1.3]X|XS[table-format=3.3]X|XS[table-format=3.3]X|@{}}
 \hline
-	&&& \multicolumn{3}{c|}{Filtration par gravité}
-	&   \multicolumn{3}{c|}{Filtration sous vide}\\
-	&&& \multicolumn{3}{c|}{\textbf{Zinc limitant}}
-	&   \multicolumn{3}{c|}{\textbf{Zinc en excès}}\\
+	&&& \multicolumn{9}{ c|}{Masse}\\
+	&&& \multicolumn{9}{ c|}{(g)}\\
+	&&& \multicolumn{9}{ c|}{$\pm0,001$}\\
+\cline{4-12}
+	&&& \multicolumn{3}{ c|}{\ce{Zn}}
+	&   \multicolumn{3}{ c|}{Montage}
+	&   \multicolumn{3}{ c|}{Montage+\ce{Cu}}\\
 \hline
-	    \multicolumn{3}{|c|}{\parbox[c]{5.5cm}{\ps\centering \ce{Zn}\\(g)\ps}}
+	    \multicolumn{3}{|c|}{\parbox[c]{4cm}{\ps\centering Filtration par gravité\\\textbf{Zinc limitant}\ps}}
 	&&  \LimitantMasseZn
-	&&& \ExcesMasseZn&\\
+	&&& \LimitantMasseMontage
+	&&& \LimitantMasseMontageCu &\\
 \hline
-	    \multicolumn{3}{|c|}{\parbox[c]{5.5cm}{\ps\centering Montage\\(g)\ps}}
-	&&  \LimitantMasseMontage
-	&&& \ExcesMasseMontage&\\
-\hline
-	    \multicolumn{3}{|c|}{\parbox[c]{5.5cm}{\ps\centering Montage+\ce{Cu}\\(g)\ps}}
-	&&  \LimitantMasseMontageCu
-	&&& \ExcesMasseMontageCu&\\
+	    \multicolumn{3}{|c|}{\parbox[c]{4cm}{\ps\centering Filtration sous vide\\\textbf{Zinc en excès}\ps}}
+	&&  \ExcesMasseZn
+	&&& \ExcesMasseMontage
+	&&& \ExcesMasseMontageCu &\\
 \hline
 \end{tabularx}
-%\begin{tabularx}{{\textwidth}}{@{}|XCX|XS[table-format=3.3]X|@{}}
-%\hline
-%	&&& \multicolumn{3}{ c|}{Masse}\\
-%	    \multicolumn{3}{|c|}{Matériel}
-%	&   \multicolumn{3}{ c|}{(g)}\\
-%	&&& \multicolumn{3}{ c|}{$\pm0,001$}\\
-%\hline
-%       \multicolumn{6}{|c|}{Filtration par gravité}\\
-%       \multicolumn{6}{|c|}{\textbf{Zinc limitant}}\\
-%\hline
-%	   \multicolumn{3}{|c|}{\ce{Zn}}
-%	&& \LimitantMasseZn&\\
-%\hline
-%	   \multicolumn{3}{|c|}{Papier filtre+Verre de montre}
-%	&& \LimitantMasseMontage&\\
-%\hline
-%	   \multicolumn{3}{|c|}{Papier filtre+Verre de montre+\ce{Cu}}
-%	&& \LimitantMasseMontageCu&\\
-%\hline
-%       \multicolumn{6}{|c|}{Filtration sous vide}\\
-%       \multicolumn{6}{|c|}{\textbf{Zinc en excès}}\\
-%\hline
-%	   \multicolumn{3}{|c|}{\ce{Zn}}
-%	&& \ExcesMasseZn&\\
-%\hline
-%	   \multicolumn{3}{|c|}{Papier filtre+Büchner+Capsule}
-%	&& \ExcesMasseMontage&\\
-%\hline
-%	   \multicolumn{3}{|c|}{Papier filtre+Büchner+Capsule+\ce{Cu}}
-%	&& \ExcesMasseMontageCu&\\
-%\hline
-%\end{tabularx}
 \justifying\textbf{Volume de la solution de \ce{CuSO4} :} $(\num\SolutionVolume\pm0,05)\ml$\\
 \justifying\textbf{Concentration de la solution de \ce{CuSO4} :} $(\num\SolutionConcentration\pm0,001)\M$
 \end{center}
@@ -154,35 +118,62 @@ La\\
 	  \textbf{Tableau des résultats : }
 	& quantités de \ce{Zn}, \ce{CuSO4} et \ce{Cu}, et \% de rendement\\
 \end{tabularx}
-\begin{tabularx}{{\textwidth}}{@{}|XCX|XS[table-format=1.2]X|XS[table-format=1.2]X|@{}}
+\begin{tabularx}{{\textwidth}}{@{}|XCX|XS[table-format=1.2]X|XS[table-format=1.2]X|XS[table-format=1.2]X|XS[table-format=1.2]X|XS[table-format=2.1]X|@{}}
 \hline
-	&&& \multicolumn{3}{c|}{Filtration par gravité}
-	&   \multicolumn{3}{c|}{Filtration sous vide}\\
-	&&& \multicolumn{3}{c|}{\textbf{Zinc limitant}}
-	&   \multicolumn{3}{c|}{\textbf{Zinc en excès}}\\
+	&&& \multicolumn{12}{ c|}{Quantité}
+	&   \multicolumn{ 3}{ c|}{\multirow{3}{*}{\parbox[c]{2cm}{\centering\% de\\ rendement}}}\\
+	&&& \multicolumn{12}{ c|}{(mmol)}
+	&   \multicolumn{ 3}{ c|}{}\\
+\cline{4-15}
+	&&& \multicolumn{3}{ c|}{\ce{Zn}}
+	&   \multicolumn{3}{ c|}{\ce{CuSO4}}
+	&   \multicolumn{3}{ c|}{\ce{Cu} théo.}
+	&   \multicolumn{3}{ c|}{\ce{Cu} exp.}
+	&   \multicolumn{3}{ c|}{}\\
 \hline
-	    \multicolumn{3}{|c|}{\parbox[c]{5.5cm}{\ps\centering Quantité de \ce{Zn}\\(mmol)\ps}}
+	    \multicolumn{3}{|c|}{\parbox[c]{4cm}{\ps\centering Filtration par gravité\\\textbf{Zinc limitant}\ps}}
 	&&  \LimitantQuantiteZn
-	&&& \ExcesQuantiteZn&\\
-\hline
-	    \multicolumn{3}{|c|}{\parbox[c]{5.5cm}{\ps\centering Quantité de \ce{CuSO4}\\(mmol)\ps}}
-	&   \multicolumn{6}{ c|}{\QuantiteSolution}\\
-\hline
-\hline
-	    \multicolumn{3}{|c|}{\parbox[c]{5.5cm}{\ps\centering Quantité de \ce{Cu} théorique\\(mmol)\ps}}
-	&&  \LimitantQuantiteCuTheorique
-	&&& \ExcesQuantiteCuTheorique&\\
-\hline
-	    \multicolumn{3}{|c|}{\parbox[c]{5.5cm}{\ps\centering Quantité de \ce{Cu} expérimentale\\(mmol)\ps}}
-	&&  \LimitantQuantiteCuExperimental
-	&&& \ExcesQuantiteCuExperimental&\\
-\hline
-\hline
-	    \multicolumn{3}{|c|}{\% de rendement}
-	&&  \parbox[c]{3cm}{\centering \num\LimitantRendement}
-	&&& \parbox[c]{3cm}{\centering \num\ExcesRendement}&\\
+	&&& \multirow{3}{*}{\num\QuantiteSolution}
+	&&& \LimitantQuantiteCuTheorique
+	&&& \LimitantQuantiteCuExperimental
+	&&& \LimitantRendement &\\
+\cline{1-6}\cline{10-18}
+	    \multicolumn{3}{|c|}{\parbox[c]{4cm}{\ps\centering Filtration sous vide\\\textbf{Zinc en excès}\ps}}
+	&&  \ExcesQuantiteZn
+	&&& 
+	&&& \ExcesQuantiteCuTheorique
+	&&& \ExcesQuantiteCuExperimental
+	&&& \ExcesRendement &\\
 \hline
 \end{tabularx}
+
+%\begin{tabularx}{{\textwidth}}{@{}|XCX|XS[table-format=1.2]X|XS[table-format=1.2]X|@{}}
+%\hline
+%	&&& \multicolumn{3}{c|}{Filtration par gravité}
+%	&   \multicolumn{3}{c|}{Filtration sous vide}\\
+%	&&& \multicolumn{3}{c|}{\textbf{Zinc limitant}}
+%	&   \multicolumn{3}{c|}{\textbf{Zinc en excès}}\\
+%\hline
+%	    \multicolumn{3}{|c|}{\parbox[c]{5.5cm}{\ps\centering Quantité de \ce{Zn}\\(mmol)\ps}}
+%	&&  \LimitantQuantiteZn
+%	&&& \ExcesQuantiteZn&\\
+%\hline
+%	    \multicolumn{3}{|c|}{\parbox[c]{5.5cm}{\ps\centering Quantité de \ce{CuSO4}\\(mmol)\ps}}
+%	&   \multicolumn{6}{ c|}{\num\QuantiteSolution}\\
+%\hline
+%	    \multicolumn{3}{|c|}{\parbox[c]{5.5cm}{\ps\centering Quantité de \ce{Cu} théorique\\(mmol)\ps}}
+%	&&  \LimitantQuantiteCuTheorique
+%	&&& \ExcesQuantiteCuTheorique&\\
+%\hline
+%	    \multicolumn{3}{|c|}{\parbox[c]{5.5cm}{\ps\centering Quantité de \ce{Cu} expérimentale\\(mmol)\ps}}
+%	&&  \LimitantQuantiteCuExperimental
+%	&&& \ExcesQuantiteCuExperimental&\\
+%\hline
+%	    \multicolumn{3}{|c|}{\% de rendement}
+%	&&  \parbox[c]{3cm}{\centering \num\LimitantRendement}
+%	&&& \parbox[c]{3cm}{\centering \num\ExcesRendement}&\\
+%\hline
+%\end{tabularx}
 \end{center}
 
 \section*{Calculs}
@@ -230,8 +221,7 @@ La\\
 {\bfseries\item Masse de \ce{Cu} expérimentale}
 \begin{equation*}
 \begin{split}
-\mathrm{m_{\ce{Cu}}}&=\mathrm{m_{\text{papier filtre+büchner+capsule+\ce{Cu}}}
-                     -\mathrm{m_{\text{papier filtre+büchner+capsule}}}}\\
+\mathrm{m_{\ce{Cu}}}&=\mathrm{m_{\text{montage+\ce{Cu}}}-\mathrm{m_{\text{montage}}}}\\
 	                &=\num\ExcesMasseMontageCu\g-\num\ExcesMasseMontage\g\\
 	                &=\num\ExcesMasseCu\g\\
 \end{split}
