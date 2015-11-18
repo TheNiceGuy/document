@@ -27,8 +27,8 @@
 	letterpaper,
 	left=36mm,
 	right=36mm,
-	top=42mm,
-	bottom=42mm,
+	top=38mm,
+	bottom=38mm,
 	heightrounded,
 }
 
@@ -51,7 +51,7 @@
 \def\LimitantMasseMontageCu{90.212}%g
 \def\ExcesMasseZn{0.528}%g
 \def\ExcesMasseMontage{150.639}%g
-\def\ExcesMasseMontageCu{150.980}%g FIXME
+\def\ExcesMasseMontageCu{150.992}%g FIXME
 \def\SolutionVolume{50.00}%ml
 \def\SolutionConcentration{0.150}%mol/L
 
@@ -73,15 +73,25 @@
 % INTRODUCTION %
 %%%%%%%%%%%%%%%%
 \section*{Introduction}
+Il est possible de chauffer du zinc avec une solution de sulfate de cuivre(II) selon l'équation chimique balancée :
+\begin{center}
+\ce{Zn(s) + CuSO4(aq) -> Cu(s) + ZnSO4(aq)}
+\end{center}
+Cette expérience a pour but de confirmer que la loi de la stoechiométrie dépend du réactif limitant. Avec l'analyse gravimétrique, il est possible de déterminer la quantité de cuivre créée. Après une réaction où le zinc est en excès, il faut éliminer le surplus de ce réactif de manière à ce qu'il puisse être filtré. Le réactif solide devient aqueux à l'aide d'une solution d'acide chlorhydrique selon l'équation chimique balancée :
+\begin{center}
+\ce{Zn(s) + 2HCl(aq) -> ZnCl2(aq) + H2(g)}
+\end{center}
+On peut ensuite recueillir le cuivre à l'aide de la filtration sous vide ou de la filtration par gravité. Finalement, le papier filtre est chauffé afin d'évaporer toutes traces de solutions et d'isoler le plus le cuivre possible.
 
 %%%%%%%%%%%%%%%%%%%%%%%
 % TABLEAU DES MESURES %
 %%%%%%%%%%%%%%%%%%%%%%%
 \section*{Mesures et résultats}
-\vspace{-3mm}\noindent\setlength\tabcolsep{0pt}
+\noindent\textbf{Tableau des mesures}
+\noindent\setlength\tabcolsep{0pt}
 \begin{center}
 \begin{tabularx}{{\textwidth}}{lX}
-	  \textbf{Tableau des mesures : }
+	  {Tableau 1 : }
 	& masses de \ce{Zn} et du montage incluant le \ce{Cu}\\
 \end{tabularx}
 \begin{tabularx}{{\textwidth}}{@{}|XCX|XS[table-format=1.3]X|XS[table-format=3.3]X|XS[table-format=3.3]X|@{}}
@@ -112,10 +122,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%
 % TABLEAU DES RÉSULTATS %
 %%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent\textbf{Tableau des résultats}
 \noindent\setlength\tabcolsep{0pt}
 \begin{center}
 \begin{tabularx}{{\textwidth}}{lX}
-	  \textbf{Tableau des résultats : }
+	  {Tableau 2 : }
 	& quantités de \ce{Zn}, \ce{CuSO4} et \ce{Cu}, et \% de rendement\\
 \end{tabularx}
 \begin{tabularx}{{\textwidth}}{@{}|XCX|XS[table-format=1.2]X|XS[table-format=1.2]X|XS[table-format=1.2]X|XS[table-format=1.2]X|XS[table-format=2.1]X|@{}}
@@ -146,34 +157,6 @@
 	&&& \ExcesRendement &\\
 \hline
 \end{tabularx}
-
-%\begin{tabularx}{{\textwidth}}{@{}|XCX|XS[table-format=1.2]X|XS[table-format=1.2]X|@{}}
-%\hline
-%	&&& \multicolumn{3}{c|}{Filtration par gravité}
-%	&   \multicolumn{3}{c|}{Filtration sous vide}\\
-%	&&& \multicolumn{3}{c|}{\textbf{Zinc limitant}}
-%	&   \multicolumn{3}{c|}{\textbf{Zinc en excès}}\\
-%\hline
-%	    \multicolumn{3}{|c|}{\parbox[c]{5.5cm}{\ps\centering Quantité de \ce{Zn}\\(mmol)\ps}}
-%	&&  \LimitantQuantiteZn
-%	&&& \ExcesQuantiteZn&\\
-%\hline
-%	    \multicolumn{3}{|c|}{\parbox[c]{5.5cm}{\ps\centering Quantité de \ce{CuSO4}\\(mmol)\ps}}
-%	&   \multicolumn{6}{ c|}{\num\QuantiteSolution}\\
-%\hline
-%	    \multicolumn{3}{|c|}{\parbox[c]{5.5cm}{\ps\centering Quantité de \ce{Cu} théorique\\(mmol)\ps}}
-%	&&  \LimitantQuantiteCuTheorique
-%	&&& \ExcesQuantiteCuTheorique&\\
-%\hline
-%	    \multicolumn{3}{|c|}{\parbox[c]{5.5cm}{\ps\centering Quantité de \ce{Cu} expérimentale\\(mmol)\ps}}
-%	&&  \LimitantQuantiteCuExperimental
-%	&&& \ExcesQuantiteCuExperimental&\\
-%\hline
-%	    \multicolumn{3}{|c|}{\% de rendement}
-%	&&  \parbox[c]{3cm}{\centering \num\LimitantRendement}
-%	&&& \parbox[c]{3cm}{\centering \num\ExcesRendement}&\\
-%\hline
-%\end{tabularx}
 \end{center}
 
 \section*{Calculs}
@@ -205,7 +188,7 @@
 \begin{split}
 \mathrm{n_{\ce{Cu}}}&=\mathrm{n_{\ce{Zn}}}\cdot\frac{\mathrm{coef_{\ce{Cu}}}}{\mathrm{coef_{\ce{Zn}}}}\\
 	                &=\num\ExcesQuantiteZn\mmol\cdot\frac{1\mol}{1\mol}\\
-	                &=\num\ExcesQuantiteZn\mmol\\
+	                &=\num\ExcesQuantiteZn\mmol\quad\textbf{(en excès)}\\
 \end{split}
 \end{equation*}
 
@@ -214,7 +197,7 @@
 \begin{split}
 \mathrm{n_{\ce{Cu}}}&=\mathrm{n_{\ce{CuSO4}}}\cdot\frac{\mathrm{coef_{\ce{Cu}}}}{\mathrm{coef_{\ce{CuSO4}}}}\\
 	                &=\num\QuantiteSolution\mmol\cdot\frac{1\mol}{1\mol}\\
-	                &=\num\QuantiteSolution\mmol\\
+	                &=\num\QuantiteSolution\mmol\quad\textbf{(limitant)}\\
 \end{split}
 \end{equation*}
 
@@ -240,10 +223,8 @@
 \begin{equation*}
 \begin{split}
 \textrm{\% de rendement}&=\frac{\mathrm{n_{\text{\ce{Cu} expérimental}}}}
-                               {\mathrm{n_{\text{\ce{Cu} théorique}}}}
-                               \times 100\\
-                        &=\frac{\num\ExcesQuantiteCuExperimental\mmol}{\num\ExcesQuantiteCuTheorique\mmol}
-                               \times 100\\
+                               {\mathrm{n_{\text{\ce{Cu} théorique}}}}\times 100\\
+                        &=\frac{\num\ExcesQuantiteCuExperimental\mmol}{\num\ExcesQuantiteCuTheorique\mmol}\times 100\\
                         &=\num\ExcesRendement\percent
 \end{split}
 \end{equation*}
@@ -254,10 +235,13 @@
 % DISCUSSION %
 %%%%%%%%%%%%%%
 \section*{Discussion}
+Lorsque le zinc était le réactif limitant, la quantité de cuivre recueillie était de $\num\LimitantQuantiteCuExperimental\mmol$, tandis que la quantité théorique était de $\num\LimitantQuantiteCuTheorique\mmol$. Donc, le pourcentage de rendement est de $\num\LimitantRendement\percent$. En effet, la quantité expérimentale est sous-évaluée par rapport à la quantité théorique. Ce résultat est normal, car le pourcentage de rendement ne peut pas être supérieur à $100\percent$, sauf si une erreur de manipulation aurait eu lieu. Plusieurs causes d'erreurs peuvent affecter le rendement de la réaction. Une décantation mal effectuée du sulfate de cuivre(II) peut entrainer un peu de cuivre avec la solution. La quantité finale de cuivre sera par conséquent sous-évaluée. Finalement, un chauffage incomplet à l'étuve occasionnerait une surévaluation de la masse de cuivre finale en raison des solutions non évaporées dans le papier filtre.\\
 
+Pour le zinc en excès, la quantité de cuivre recueillie était de $\num\ExcesQuantiteCuExperimental\mmol$ par rapport à la quantité théorique de $\num\ExcesQuantiteCuTheorique\mmol$. Le pourcentage de rendement est de $\num\ExcesRendement\percent$. De manière similaire, le pourcentage de rendement ne peut pas être supérieur à $100\percent$. En plus des causes d'erreurs mentionnées plus haut, un chauffage trop élevé avec la plaque chauffante pourrait évaporer le sulfate de cuivre(II) qui est le réactif limitant. Cela aurait pour impact une sous-évaluation de la quantité de cuivre recueilli, car la quantité du réactif limitant serait plus petite. De plus, la succion de cette technique de filtration peut entrainer des particules de cuivre à travers du papier filtre, ce qui aurait comme résultat de réduire la quantité de cuivre recueilli. De plus, si l'acide chlorhydrique n'est pas totalement lavé, le papier filtre pourrait brulé dans l'étuve, ce qui pourrait entrainer une décomposition et une sous-évaluation du cuivre. Cette expérience montre que le rendement de la filtration sous vide est légèrement inférieur à celui de la filtration par gravité à cause de la cause d'erreur reliée à la succion du filtrage.
 
 %%%%%%%%%%%%%%
 % CONCLUSION %
 %%%%%%%%%%%%%%
 \section*{Conclusion}
+Pour conclure, la filtration par gravité donne un pourcentage de rendement de $\num\LimitantRendement\percent$, tandis que la filtration sous vide donne un pourcentage de rendement légèrement inférieur de $\num\ExcesRendement\percent$. En tenant en compte des pourcentages de rendement et des causes d'erreurs, il est raisonnable d'affirmer que la loi de la stoechiométrie dépend bel et bien de la quantité du réactif limitant.
 \end{document}

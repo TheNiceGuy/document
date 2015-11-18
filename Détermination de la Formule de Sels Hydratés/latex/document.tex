@@ -1,0 +1,401 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{gensymb}
+\usepackage{mathtools}
+\usepackage[version=4]{mhchem}
+\usepackage{tabularx}
+\usepackage{geometry}
+\usepackage[table]{xcolor}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{textcomp}
+\usepackage{ragged2e}
+\usepackage{lettrine}
+\usepackage{lmodern}
+%\usepackage{mathptmx}
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\mathtoolsset{showonlyrefs}
+\sisetup{output-decimal-marker={,}}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{A}{X}
+\newcolumntype{a}{@{}l@{}}
+\geometry{
+	letterpaper,
+	left=42mm,
+	right=42mm,
+	top=42mm,
+	bottom=42mm,
+	heightrounded,
+}
+
+\newenvironment{nscenter}
+	{\parskip=0pt\par\nopagebreak\centering}
+	{\par\noindent\ignorespacesafterend}
+
+\begin{document}
+\input{document_titre.tex}
+%%%%%%%%%%%%%%%%
+% INTRODUCTION %
+%%%%%%%%%%%%%%%%
+\lettrine{L}{a} première partie du laboratoire a pour but de déterminer la formule d’un sel hydraté inconnu à l’aide de la gravimétrie. Lors du chauffage avec un bruleur, les molécules d’eaux contenues dans le sel s’évaporent en laissant le sel anhydre. Donc, on peut mesurer la masse du sel hydraté et du sel anhydre. À l’aide de la masse de l'hydrate et de celle du sel anhydre, il est possible de déterminer la masse d’eau contenue dans le composé pour ensuite calculer le ratio massique de l’eau et du sel. Par la suite, il suffit de comparer le ratio expérimental avec les valeurs théoriques.\\
+
+La deuxième partie de l’expérience consiste à déterminer la quantité de molécules d’eau contenue dans un sel hydraté de chlorure de cobalt. La technique utilisée est la même, la gravimétrie. Par contre, on chauffe l'hydrate dans une étuve pour obtenir la quantité de moles du sel hydraté et du sel anhydre. Ensuite, le ratio molaire de l'eau sur le composé anhydre peut être comparé avec une valeur théorique pour déterminer la quantité de molécules d'eau dans le sel hydraté.
+
+\section*{Mesures et résultats}
+%%%%%%%%%%%%%%%%%%%%%%%
+% TABLEAU DES MESURES %
+%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{-2mm}\noindent\setlength\tabcolsep{0pt}
+\begin{center}
+\begin{tabularx}{{\textwidth}}{lX}
+	  \textbf{Tableau des mesures : }
+	& masse du creuset, des sels hydratés ainsi que le creuset contenant les sels anhydres\\
+\end{tabularx}
+\begin{tabularx}{{\textwidth}}{@{}|c|AS[table-format=2.3]A|AS[table-format=2.3]C|@{}}
+\hline
+	  \multirow{2}{*}[-2mm]{Matériel} 
+	& \multicolumn{6}{c|}{\parbox[c]{3cm}{\centering Masse\\(g)\\$\pm0,001$}}\\
+\cline{2-7}
+	&&  \parbox[c]{3cm}{\centering Partie 1\\Sel inconnu}
+	&&& \parbox[c]{3cm}{\centering Partie 2\\\ce{CoCl2.yH2O}}&\\ 
+\hline
+	    creuset
+	&&  25,309 
+	&&& 23,097&\\
+\hline
+	    sel hydraté
+	&&  2,204 
+	&&& 2,164&\\
+\hline
+	    creuset + sel anhydre 
+	&&  26,729
+	&&& 24,281&\\
+\hline
+\end{tabularx}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TABLEAU DES OBSERVATIONS %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent\setlength\tabcolsep{0pt}
+\begin{center}
+\begin{tabularx}{{\textwidth}}{lX}
+	  \textbf{Tableau des observations : }
+	& couleurs des sels hydratés, anhydres et rehydratés\\
+\end{tabularx}
+\begin{tabularx}{{\textwidth}}{@{}|c|C|C|C|@{}}
+\hline
+	& Sel hydraté
+	& Sel anhydre
+	& Sel rehydraté\\
+\hline
+	  sel inconnu
+	& bleu
+	& vert pâle
+	& bleu\\
+\hline
+	  chlorure de cobalt
+	& rose
+	& bleu
+	& mauve\\
+\hline
+\end{tabularx}
+\end{center}
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TABLEAU DES RÉSULTATS 1 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent\setlength\tabcolsep{0pt}
+\begin{center}
+\begin{tabularx}{{\textwidth}}{lX}
+	  \textbf{Tableau des résultats 1 : }
+	& masse du sel inconnu et de l'eau contenue, ainsi que leur pourcentage massique\\
+\end{tabularx}
+\begin{tabularx}{{\textwidth}}{@{}|C|c|c|c|c|@{}}
+\hline
+	& \parbox[c]{20mm}{\centering Masse du sel hydraté\\(g)}
+	& \parbox[c]{15mm}{\centering Masse $\ce{H2O}$\\(g)}
+	& \parbox[c]{28mm}{\centering \% m/m\\$\left (\frac{\mathrm{m_{eau}}}{\mathrm{m_{hydrate}}}\times100\right )$}
+	& \parbox[c]{26mm}{\centering \% d'écart avec le sel de référence choisi}\\
+\hline
+	  sel inconnu
+	& 2,204
+	& 0,784
+	& 35,6 
+	& 1\\
+\hline
+\end{tabularx}
+\justifying\textbf{Sel de référence choisi :} $\ce{CuSO4}$
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TABLEAU DES RÉSULTATS 2 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent\setlength\tabcolsep{0pt}
+\begin{center}
+\begin{tabularx}{{\textwidth}}{lX}
+	  \textbf{Tableau des résultats 2 : }
+	& masses et quantités du sel et de l'eau, ainsi que leur rapport molaire\\
+\end{tabularx}
+\begin{tabularx}{{\textwidth}}{@{}|c|S[table-format=1.3]|S[table-format=2.3E-3]|C|C|@{}}
+\hline
+	  \multirow{2}{*}{}
+	& \multirow{2}{*}{\parbox[c]{15mm}{\centering Masse\\(g)}}
+	& \multirow{2}{*}{\parbox[c]{15mm}{\centering Quantité\\(mol)}}
+	& \multicolumn{2}{c|}{\parbox[c]{30mm}{\centering Ratio $\frac{\mathrm{n_{\ce{H2O}}}}{\mathrm{n_{\ce{CoCl2}}}}$}}\\
+\cline{4-5}
+	&
+	&
+	& expérimental
+	& théorique\\
+\hline
+	  $\ce{CoCl2}$
+	& 1,184
+	& 9,119E-3
+	& \cellcolor[RGB]{0,0,0}
+	& \cellcolor[RGB]{0,0,0}\\
+\hline
+	  $\ce{H2O}$
+	& 0,980
+	& 54,4E-3
+	& 5,97
+	& 6\\
+\hline
+\end{tabularx}
+\justifying\textbf{\% d'écart :} 0,5\%
+\end{center}
+
+\section*{Calculs}
+%%%%%%%%%%%%%%%%%%%%%%
+% CALCULS - PARTIE 1 %
+%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Partie 1}
+\begin{enumerate}
+{\bfseries\item Masse du sel anhydre}
+\begin{equation*}
+\begin{split}
+\mathrm{m_{\text{sel anhydre}}}&=\mathrm{m_{creuset+\text{sel anhydre}}-\mathrm{m_{creuset}}}\\
+	                           &=26,729\mathrm{g}-25,309\mathrm{g}\\
+	                           &=1,420\mathrm{g}\\
+\end{split}
+\end{equation*}
+
+{\bfseries\item Masse de \ce{H2O}}
+\begin{equation*}
+\begin{split}
+\mathrm{m_{\ce{H2O}}}&=\mathrm{m_{\text{sel hydraté}}-\mathrm{m_{\text{sel anhydre}}}}\\
+	                 &=2,204\mathrm{g}-1,420\mathrm{g}\\
+	                 &=0,784\mathrm{g}\\
+\end{split}
+\end{equation*}
+
+{\bfseries\item Pourcentage massique expérimental de \ce{H2O} dans le sel hydraté}
+\begin{equation*}
+\begin{split}
+\%\ \mathrm{m/m}&=\frac{\mathrm{m_{\ce{H2O}}}}{\mathrm{m_{\text{sel hydraté}}}}\times 100\\
+	            &=\frac{0,784\mathrm{g}}{2,204\mathrm{g}}\times 100\\
+	            &=35,6\ \%\\
+\end{split}
+\end{equation*}
+
+{\bfseries\item Pourcentage d'écart avec le sel de référence choisi}
+\begin{equation*}
+\begin{split}
+\%\ \text{d'écart}&=\frac{\mid\mathrm{\% m/m_{\text{sel de référence}}}-\mathrm{\% m/m_{\text{sel expérimental}}}\mid}{\mathrm{\% m/m_{\text{sel de référence}}}}\times 100\\
+	              &=\frac{\mid 36,08-35,6\mid}{36,08}\times 100\\
+	              &=1\ \%\\
+\end{split}
+\end{equation*}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%
+% CALCULS - PARTIE 2 %
+%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Partie 2}
+\begin{enumerate}
+{\bfseries\item Masse de \ce{CoCl2}}
+\begin{equation*}
+\begin{split}
+\mathrm{m_{\ce{CoCl2}}}&=\mathrm{m_{creuset+\text{sel anhydre}}-\mathrm{m_{creuset}}}\\
+	                   &=24,281\mathrm{g}-23,097\mathrm{g}\\
+	                   &=1,184\mathrm{g}\\
+\end{split}
+\end{equation*}
+
+{\bfseries\item Masse de \ce{H2O}}
+\begin{equation*}
+\begin{split}
+\mathrm{m_{\ce{H2O}}}&=\mathrm{m_{\text{sel hydraté}}-\mathrm{m_{\text{sel anhydre}}}}\\
+	                 &=2,164\mathrm{g}-1,184\mathrm{g}\\
+	                 &=0,980\mathrm{g}\\
+\end{split}
+\end{equation*}
+
+{\bfseries\item Nombre de mol de \ce{CoCl2}}
+\begin{equation*}
+\begin{split}
+\mathrm{n_{\ce{CoCl2}}}&=\frac{\mathrm{m_{\ce{CoCl2}}}}{\mathrm{MM_{\ce{CoCl2}}}}\\
+	                   &=\frac{1,184\mathrm{g}}{129,84\mathrm{g/mol}}\\
+	                   &=9,119\times 10^{-3}\mathrm{mol}\\
+\end{split}
+\end{equation*}
+
+{\bfseries\item Nombre de mol de \ce{H2O}}
+\begin{equation*}
+\begin{split}
+\mathrm{n_{\ce{H2O}}}&=\frac{\mathrm{m_{\ce{H2O}}}}{\mathrm{MM_{\ce{H2O}}}}\\
+	                 &=\frac{0,980\mathrm{g}}{18,02\mathrm{g/mol}}\\
+	                 &=54,4\times 10^{-3}\mathrm{mol}\\
+\end{split}
+\end{equation*}
+
+{\bfseries\item Ratio molaire du \ce{H2O} et du \ce{CoCl2}}
+\begin{equation*}
+\begin{split}
+\mathrm{ratio_{\ce{CoCl2.yH2O}}}&=\frac{\mathrm{n_{\ce{H2O}}}}{\mathrm{n_{\ce{CoCl2}}}}\\
+	                            &=\frac{54,4\times 10^{-3}\mathrm{mol}}{9,119\times 10^{-3}\mathrm{mol}}\\
+	                            &=5,97\\
+\end{split}
+\end{equation*}
+
+{\bfseries\item Pourcentage d'écart avec le \ce{CoCl2.yH2O}}
+\begin{equation*}
+\begin{split}
+\text{\% d'écart}&=\frac{\mid\mathrm{ratio_{\ce{CoCl2.6H2O}}}-\mathrm{ratio_{\ce{CoCl2.yH2O}}}\mid}{\mathrm{ratio_{\ce{CoCl2.6H2O}}}}\times 100\\
+	             &=\frac{\mid 6-5,97\mid}{6}\times 100\\
+	             &=0,5\%\\
+\end{split}
+\end{equation*}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% ÉQUATIONS BALANCÉES %
+%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Équations de déshydratation balancées}
+\begin{enumerate}
+{\bfseries\item Déshydratation du sulfate de cuivre(II) pentahydraté}
+\begin{center}
+\ce{
+	$\underset{\text{bleu}}{\ce{CuSO4.5H2O(s)}}$
+	->[150\degree C]
+    $\underset{\text{vert}}{\ce{CuSO4(s)}}$ + 5H2O(g)
+}
+\end{center}
+
+{\bfseries\item Déshydratation du chlorure de cobalt hexahydraté}
+\begin{center}
+\ce{
+	$\underset{\text{rouge}}{\ce{CoCl2.6H2O(s)}}$
+	->[110\degree C]
+    $\underset{\text{bleu}}{\ce{CoCl2(s)}}$ + 6H2O(g)
+}
+\end{center}
+\end{enumerate}
+
+%%%%%%%%%%%%%%
+% DISCUSSION %
+%%%%%%%%%%%%%%
+\section*{Discussion}
+Suite à l'expérience, la formule du sel inconnu est du sulfate de cuivre(II) pentahydraté, ce qui correspond à la formule théorique. Le ratio massique expérimental est de 35,6 \%, ce qui est semblable au ratio théorique de 36,08 \% du sulfate de cuivre(II) pentahydraté. Le faible pourcentage d’écart de 1 \% permet d’affirmer que c’est du sulfate de cuivre(II) pentahydraté. Durant la déshydratation, le sel passe du bleu au vert pâle, ce qui est comparable aux couleurs de références du sulfate de cuivre(II) pentahydraté. La sous-évaluation du ratio massique peut s’expliquer par une déshydratation incomplète du sel. En effet, il semblait y avoir une petite quantité de composés bleus (sel hydraté) au centre du creuset. Une autre cause d’erreur possible serait la décomposition du sel durant le chauffage. Effectivement, une certaine fumée a pu être observée durant la manipulation. Puisque notre chauffage n’est pas nécessairement uniforme, les côtés du creuset ont pu être chauffés à des plus hautes températures que le centre. Ce qui expliquerait la petite décomposition malgré le fait que le sel n’était pas complètement déshydraté. Donc, la décomposition n’est pas considérable comme cause d’erreur, car la valeur expérimentale est sous-évalué. Ces causes d’erreurs peuvent être évitées en chauffant plus délicatement, mais plus longtemps.\\
+
+Durant la deuxième partie, le coefficient d’hydratation du chlorure de cobalt obtenue est de 5,97, par rapport à la valeur théorique de 6 du chlorure de cobalt hexahydraté. En prenant compte des couleurs, le sel passe du rose au bleu pendant la déshydratation, ce qui contribue à l’identification du composé. Le faible pourcentage d’écart de 0,5 \% confirme le résultat. La sous-évaluation du ratio molaire peut s’expliquer par une déshydratation incomplète du sel. La décomposition du composé pourrait, dans certains cas, être une cause d’erreur. Cependant, le chauffage à l’étuve est beaucoup plus uniforme que cel d'un bruleur. Donc, il est peu probable qu’il y ait eu décomposition. 
+
+%%%%%%%%%%%%%%
+% CONCLUSION %
+%%%%%%%%%%%%%%
+\section*{Conclusion}
+Pour conclure, le sel inconnu est du sulfate de cuivre(II) pentahydraté et le coefficient d’hydratation du chlorure de cobalt est 6.
+
+%%%%%%%%%%
+% ANNEXE %
+%%%%%%%%%%
+\section*{Annexe}
+\vspace{-3mm}\noindent\setlength\tabcolsep{0pt}
+\begin{center}
+\begin{tabularx}{{\textwidth}}{lX}
+	  \textbf{Tableau 1 : }
+	& \raggedright Pourcentage massiques des sels de références
+\end{tabularx}
+\begin{tabularx}{{\textwidth}}{|C|S[table-format=3.3]|S[table-format=3.4]|S[table-format=2.4]|}
+\hline
+	& \parbox[c]{27mm}{\centering Masse molaire du sel hydraté\\(g)}
+	& \parbox[c]{37mm}{\centering Masse \ce{H2O} dans une mole de composé\\(g)}
+	& \parbox[c]{25mm}{\centering \% m/m\\$\left (\frac{\mathrm{m_{\ce{H2O}}}}{\mathrm{m_{\text{sel}}}}\times 100\right )$}\\
+\hline
+	  \ce{FeSO4.7H2O}
+	& 278,015
+	& 126,1070
+	& 45,3598\\
+\hline
+	  \ce{CuSo4.5H2O}
+	& 249,685
+	& 90,0764
+	& 36,0760\\
+\hline
+	  \ce{Fe(NO3)3.9H2O}
+	& 403,997
+	& 162,1375
+	& 40,1333\\
+\hline
+	  \ce{CaCl2.2H2O}
+	& 147,015
+	& 36,0306
+	& 24,5081\\
+\hline
+	  \ce{MgSO4.7H2O}
+	& 245,475
+	& 126,1070
+	& 51,3726\\
+\hline
+\end{tabularx}
+\end{center}
+
+\noindent\setlength\tabcolsep{0pt}
+\begin{center}
+\begin{tabularx}{{\textwidth}}{lX}
+	  \textbf{Tableau 2 : }
+	& \raggedright Information des sels de références
+\end{tabularx}
+\begin{tabularx}{{\textwidth}}{|C|C|C|C|}
+\hline
+	& \parbox[c]{30mm}{\centering Couleurs des sels hydratés}
+	& \parbox[c]{30mm}{\centering Température de déshydratation complète}
+	& \parbox[c]{30mm}{\centering Couleurs des sels anhydres}\\
+\hline
+	  \ce{FeSO4.7H2O}
+	& bleu-vert
+	& 300
+	& blanc\\
+\hline
+	  \ce{CuSo4.5H2O}
+	& bleu
+	& 150
+	& vert\\
+\hline
+	  \ce{Fe(NO3)3.9H2O}
+	& blanc
+	& 125
+	& \cellcolor[RGB]{0,0,0}\\
+\hline
+	  \ce{CaCl2.2H2O}
+	& \cellcolor[RGB]{0,0,0}
+	& \cellcolor[RGB]{0,0,0}
+	& blanc\\
+\hline
+	  \ce{MgSO4.7H2O}
+	& blanc
+	& 200
+	& blanc\\
+\hline
+	  \ce{CoCl2.6H2O}
+	& rouge
+	& 110
+	& bleu\\
+\hline
+\end{tabularx}
+\end{center}
+\end{document}

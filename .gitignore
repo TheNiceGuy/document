@@ -2,4 +2,5 @@
 *.log
 *.eps
 *.pdf
+*.swp
 !document.pdf

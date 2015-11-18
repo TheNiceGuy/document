@@ -1,0 +1,156 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage{tabularx}
+\usepackage{geometry}
+\usepackage[table]{xcolor}
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\mathtoolsset{showonlyrefs}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\geometry{
+	total={210mm,297mm},
+	left=42mm,
+	right=42mm,
+	top=42mm,
+	bottom=42mm,
+}
+
+\begin{document}
+\input{document_titre.tex}
+\section*{Introduction}
+Par chauffage dans un creuset, du souffre en excès réagit directement avec du cuivre métallique pour former un composé binaire $\mathrm{Cu_xS_y}$ «sulfure de cuivre» selon l'équation chimique :
+\begin{equation}
+\mathrm{Cu}+\mathrm{S_8}\rightarrow\mathrm{Cu_{x}S_{y}}
+\end{equation}
+
+Une fois la réaction formant le sulfure du cuivre terminer, la poursuite du chauffage permet au soufre, en excès, n'ayant pas réagi de réagir avec l'oxygène. La formule chimique du sulfure de cuivre inconnu est déterminée indirectement par les masses de cuivre et de soufre se combinant lors de sa formation. La masse de cuivre demeure constante tandis que la masse de soufre est déduite de la masse finale du composé formé.
+
+\section*{Tableau des mesures}
+\noindent\textbf{Tableau 1 :} masse de cuivre et du creuset avec/sans le composé binaire
+\begin{center}
+\begin{tabularx}{{\textwidth}}{@{}|c|C|@{}}
+\hline
+	\bf{Matériel} & \bf{Masse}\\
+	              & (g)       \\
+	              & $\pm0,001$\\
+\hline
+	\parbox[c]{3cm}{\centering Creuset vide\\(sans couvercle)} & 20,911\\
+\hline
+	\parbox[c]{3cm}{\centering Cuivre\\(tare)} & 1,028\\
+\hline
+	Creuset+$\mathrm{Cu_xS_y}$ & 22,187\\
+\hline
+\end{tabularx}
+\end{center}
+
+\noindent\textbf{Tableau 2 :} masse de $\mathrm{Cu_xS_y}$ recueilli et de S contenu dans celui-ci
+\begin{center}
+\begin{tabularx}{{\textwidth}}{@{}|c|C|@{}}
+\hline
+	\bf{Espèce chimique} & \bf{Masse}\\
+	                     & (g)       \\
+\hline
+	$\mathrm{Cu_xS_y}$ recueilli & 1,276\\
+\hline
+	S contenu dans le composé $\mathrm{Cu_xS_y}$ & 0,248\\
+\hline
+\end{tabularx}
+\end{center}
+
+\noindent\textbf{Tableau 3 :} quantités de mol et ratio expérimental/théorique
+\begin{center}
+\begin{tabularx}{{\textwidth}}{@{}|c|c|C|C|@{}}
+\hline
+	\bf{Élément} & \bf{Quantité} & \bf{Ratio expérimental} & \bf{Ratio théorique}\\
+	             & (mol)         & (mol Cu/mol S)          & (mol Cu/mol S)      \\
+\hline
+	Cu           & $16,18\times10^{-3}$ & 2,09 & 2\\
+\hline
+	S            & $ 7,73\times10^{-3}$ & \cellcolor[RGB]{0,0,0} & \cellcolor[RGB]{0,0,0}\\
+\hline
+\end{tabularx}
+\end{center}
+\textbf{Pourcentage d'écart :} 4,6\%
+
+\section*{Calculs}
+\begin{enumerate}\bfseries
+\item Masse de $\mathbf{Cu_xS_y}$
+\begin{equation*}
+\begin{split}
+\mathrm{m_{Cu_xS_y}}&=\mathrm{m_{Cu_xS_y+creuset}-\mathrm{m_{creuset}}}\\
+	                &=22,187\mathrm{g}-20,911\mathrm{g}\\
+	                &=1,276\mathrm{g}\\
+\end{split}
+\end{equation*}
+
+\item Masse de soufre ayant réagi
+\begin{equation*}
+\begin{split}
+\mathrm{m_{S}}&=\mathrm{m_{Cu_xS_y}-\mathrm{m_{Cu}}}\\
+	          &=1,276\mathrm{g}-1,028\mathrm{g}\\
+	          &=0,248\mathrm{g}\\
+\end{split}
+\end{equation*}
+
+\item Calcul du nombre de mol de cuivre présent dans le composé de sulfure de cuivre
+\begin{equation*}
+\begin{split}
+\mathrm{n_{Cu}}&=\frac{\mathrm{m_{Cu}}}{\mathrm{MM_{Cu}}}\\
+               &=\frac{1,028\mathrm{g}}{63,546\mathrm{g/mol}}\\
+	           &=(16,18\times10^{-3})\mathrm{mol}\\
+\end{split}
+\end{equation*}
+
+\item Calcul du nombre de mol de soufre présent dans le composé de sulfure de cuivre
+\begin{equation*}
+\begin{split}
+\mathrm{n_{S}}&=\frac{\mathrm{m_{S}}}{\mathrm{MM_{S}}}\\
+              &=\frac{0,248\mathrm{g}}{32,065\mathrm{g/mol}}\\
+              &=(7,73\times10^{-3})\mathrm{mol}\\
+\end{split}
+\end{equation*}
+
+\item Ratio (mol Cu/mol S)
+\begin{equation*}
+\begin{split}
+\mathrm{ratio}&=\frac{\mathrm{n_{Cu}}}{\mathrm{n_{S}}}\\
+              &=\frac{(16,18\times10^{-3})\mathrm{mol}}{(7,73\times10^{-3})\mathrm{mol}}\\
+              &=2,09\\
+\end{split}
+\end{equation*}
+
+\item Formule moléculaire
+\begin{equation*}
+\begin{split}
+\mathrm{Cu_{2}S_{1}}
+\end{split}
+\end{equation*}
+
+\item Équation chimique balancée
+\begin{equation*}
+\begin{split}
+16\mathrm{Cu}(s)+\mathrm{S_8}(s)\rightarrow8\mathrm{Cu_{2}S}(s)
+\end{split}
+\end{equation*}
+
+\item Pourcentage d'écart entre le ratio théorique et le ratio expérimental
+\begin{equation*}
+\begin{split}
+\%\,\, d'ecart&=\frac{|\mathrm{ratio_{theorique}-ratio_{experimental}}|}{\mathrm{ratio_{theorique}}}\times100\\
+              &=\frac{|2-2,09|}{2}\times100\\
+              &=4,50\%\\
+\end{split}
+\end{equation*}
+\end{enumerate}
+
+\section*{Discussion}
+Selon l'expérience, la formule chimique expérimentale est du sulfure de cuivre(II), ce qui fait partie des composés ioniques possibles: $\mathrm{Cu_2S}, \mathrm{CuS}$. Suite aux calculs, la proportion de moles de cuivre et de soufre dans le composé est d'environ 2.09, par rapport à un ratio de 2 pour le $\mathrm{Cu_2S}$. Avec la loi des proportions définies, il est possible de déterminer la formule chimique créée. En effet, peu importe la masse de sulfure de cuivre créé, le ratio des éléments est invariable. De plus, la loi des proportions multiples et l'analyse ionique du cuivre et du soufre permettent de déterminer qu'il n'existe qu'un seul composé avec ce ratio : $\mathrm{Cu_2S}$.\\
+
+Pour continuer, le pourcentage d'écart du ratio expérimental à celui théorique est d'environ 4,50\%, ce qui est assez précis dans le cadre de notre expérience. Plusieurs causes d'erreurs peuvent entrer en jeu. Une surévalution du ratio expérimental peut être dû au cuivre n'ayant pas totalement réagit. Dans le cas d'une sous-évaluation, il est possible que le soufre n'ait pas totalement réagi avec l'oxygène lorsqu'il était sur le bruleur. Dans le cas de l'expérience, il est logique d'obtenir un ratio surévalué, car il semblait y avoir des traces de cuivre sur les parois du creuset, tandis que le soufre avait totalement réagi. Il est possible que le cuivre n'ait pas été totalement recouvert de soufre, ce qui expliquerait la réaction incomplète. Pour minimiser les erreurs, il faut s'assurer de bien recouvrir le cuivre de soufre et aussi de s'assurer que tout l'excès de soufre ait réagi avec l'oxygène en le chauffant.
+
+\section*{Conclusion}
+Pour conclure, il y a formation de sulfure de cuivre(II) dans la réaction chimique de combinaison du cuivre et du soufre dans les proportions utilisées.
+\end{document}
