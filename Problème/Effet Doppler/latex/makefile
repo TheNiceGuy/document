@@ -6,6 +6,7 @@ document.pdf: document.tex
 	pdflatex -shell-escape document.tex
 	bibtex document.aux
 	pdflatex -shell-escape document.tex
+	pdflatex -shell-escape document.tex
 
 clean:
 	rm -f *.pdf
