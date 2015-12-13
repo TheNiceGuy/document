@@ -1,0 +1,64 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage{gensymb}
+
+\begin{document}
+\section*{Problème}
+Indiana Jones veut récupérer des reliques au fond d'un puits très profond. Il doit envoyer exactement la bonne longueur de corde pour éviter que les rats ne la rongent pendant qu'il descent. Il utilise donc un générateur de fréquences et envoie un signal dans le puits (ouvert-fermé) où la température moyenne est de 15\degree C. Le signal entre en résonance pour les 2 fréquences consécutives suivantes; 65,85Hz et 77,82Hz.
+
+{\center\it Calculez les nombres d'harmoniques (modes de vibration) de ces résonances.\par}
+{\center\it Calculez la profondeur de ce puits.\par}
+
+\section*{Résolution}
+Puisque le puit est associé à une colonne d'air avec une extrémité fermée, les fréquences naturelles du puit est donné par l'équation :
+\begin{equation}
+f=n\frac{v}{4L}\quad\text{où}\quad n=1,3,5...
+\end{equation}
+
+La vitesse du son dans l'air n'est pas spécifiée, mais elle peut être déterminée approximativement à l'aide de la température $T$ et la formule :
+\begin{equation}
+\begin{split}
+v&\approx331+0,6T=340\mathrm{m/s}
+\end{split}
+\end{equation}
+
+Le signal entre en résonnance avec deux fréquences $f_1=65,85\mathrm{Hz}$ et $f_2=77,82\mathrm{Hz}$. On obtient donc deux équations distinctes ayant des harmoniques différentes :
+\begin{equation}
+f_1=n_1\frac{v}{4L}
+\end{equation}
+\begin{equation}
+f_2=n_2\frac{v}{4L}
+\end{equation}
+
+Nous avons trois inconnues, $n_1$, $n_2$ et $L$, et seulement 2 équations. Il serait donc impossible de résoudre ce système. Par contre, l'énoncé spécifie que les deux fréquences sont consécutives, il est logique d'assumer que les harmoniques vont aussi être consécutives, $n_2=n_1+2$. Il est important de préciser que les harmoniques d'une colonne d'air comme celle-ci utilise des nombres impairs, ce qui explique le l'addition de 2 au lieu de 1 pour définire l'harmonique suivante. On peut donc réécrire les équation (3) et (4) comme suit :
+\begin{equation}
+f_1=n_1\frac{v}{4L}
+\end{equation}
+\begin{equation}
+f_2=(n_1+2)\frac{v}{4L}
+\end{equation}
+
+Il suffit simplement de résoudre le système à deux équations.
+\begin{equation}
+\begin{split}
+&\begin{cases}
+f_1=n_1\dfrac{v}{4L}\\f_2=(n_1+2)\dfrac{v}{4L}
+\end{cases}\\
+\Rightarrow
+&\begin{cases}
+\dfrac{v}{4L}=\dfrac{f_1}{n_1}\\\dfrac{v}{4L}=\dfrac{f_2}{n_1+2}
+\end{cases}\\
+\Rightarrow&\dfrac{f_1}{n_1}=\dfrac{f_2}{n_1+2}\\
+\Rightarrow&n_1=\frac{2f_1}{f_2-f_1}\approx 11\\
+\end{split}
+\end{equation}
+
+Finalement, les deux nombres d'harmoniques sont 11 et 13. On remarque aussi que la vitesse du son ne fut pas requise en raison de la démarche algébrique (7). En effet, le son et la longueur de la colonne (profondeur du puit) sont des constantes et elles peuvent être regroupées du même bord de l'équation durant la résolution. Par contre, la vitesse du son peut permettre de calculer la longueur de la colonne en reprenant une des équations comme (3) :
+\begin{equation}
+\begin{split}
+f_1&=n_1\frac{v}{4L}\\
+\Rightarrow L&=n_1\frac{v}{4f_1}=14,20\mathrm{m}\\
+\end{split}
+\end{equation}
+\end{document}

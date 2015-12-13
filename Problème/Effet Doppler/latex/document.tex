@@ -1,0 +1,73 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage{graphicx,accents}
+
+\makeatletter
+\DeclareRobustCommand{\cev}[1]{%
+  \mathpalette\do@cev{#1}%
+}
+\newcommand{\do@cev}[2]{%
+  \fix@cev{#1}{+}%
+  \reflectbox{$\m@th#1\vec{\reflectbox{$\fix@cev{#1}{-}\m@th#1#2\fix@cev{#1}{+}$}}$}%
+  \fix@cev{#1}{-}%
+}
+\newcommand{\fix@cev}[2]{%
+  \ifx#1\displaystyle
+    \mkern#23mu
+  \else
+    \ifx#1\textstyle
+      \mkern#23mu
+    \else
+      \ifx#1\scriptstyle
+        \mkern#22mu
+      \else
+        \mkern#22mu
+      \fi
+    \fi
+  \fi
+}
+
+\begin{document}
+\section*{Problème}
+Les baleines utilisent un système d'écholocation qui ressemble à un sonar pour locailser les bancs de krills, leur repas favoris. Pour ne pas effrayer le krill, la baleine reste immobile et envoie une onde sonore de 5000Hz dans toutes les directions. Tout à coup, elle perçoit un battement de 40Hz entre l'onde émise et l'onde qui lui revient après avoir réfléchi sur les krills, ce qui signifie que les krills approchent!
+
+{\center\it Calculez la vitesse des krills sachant que la vitesse du son dans l'eau de mer est de 1500m/s.\par}
+
+\section*{Résolution}
+Ce problème traite la baleine comme étant la source et l'observateur en même temps. Le banc de poisson n'est qu'un objet à laquel les ondes rebondissent afin de retourner vers la baleine. Si la source/observateur perçoit un battement de 40Hz, la fréquence retournée par l'objet peut prendre deux valeurs : 4960Hz et 5040Hz. Puisque l'on spécifie que l'objet se déplace vers la source, on peut déduire que les ondes se compressent de manière à augmenter la fréquence. Donc, la fréquence perçue est de 5040Hz.\\
+
+On peut imaginer la situation en deux parties : il y a un premier décalage doppler lorsque l'onde se rend à l'objet et il y a un deuxième décalage doppler lorsque l'onde revient à la source. Voici une représentation de la situation si l'objet se déplace à une vitesse constante vers la source. La source reste immobile.
+\begin{equation*}
+\mathrm{source}\xrightarrow[f_0\rightarrow f_1]{\text{premier décalage doppler}}\cev{objet}
+\end{equation*}
+\begin{equation*}
+\mathrm{source}\xleftarrow[f_2\leftarrow f_1]{\text{deuxième décalage doppler}}\cev{objet}
+\end{equation*}
+
+Si l'on examine la première partie, on peut considérer l'objet en mouvement comme l'observateur. Il se déplace vers la source de manière à compresser les ondes, ce qui a pour effet d'augmenter la fréquence perçue. Voici la première équation de doppler avec les signes configurés afin d'augmenter la fréquence perçu :
+\begin{equation}
+f_1=f_0\left(\frac{v\pm v_o}{v\pm v_s}\right)=f_0\left(\frac{v+V}{v}\right),
+\end{equation}
+où $V$ est la vitesse de l'objet (qui est l'observateur dans la première situation) et $v=1500\mathrm{m/s}$ celle de la vitesse du son dans l'eau.\\
+
+La fréquence perçu de la première partie $f_1$ devient la fréquence réelle de la deuxième partie. Par contre, on considère l'objet en mouvement comme la source. Si la source se déplace vers l'observateur, les ondes se trouvent aussi à être compressées de manière à augmenter la fréquence. Voici la deuxième équation de doppler avec les signes configurés afin d'augmenter la fréquence perçu :
+\begin{equation}
+f_2=f_1\left(\frac{v\pm v_o}{v\pm v_s}\right)=f_1\left(\frac{v}{v-V}\right),
+\end{equation}
+
+Si l'on insère (1) dans (2), obtient l'équation :
+\begin{equation}
+f_2=f_0\left(\frac{v+V}{v}\right)\left(\frac{v}{v-V}\right)=f_0\left(\frac{v+V}{v-V}\right)
+\end{equation}
+
+On cherche la vitesse de l'objet $V$, la solution de l'équation (3) est :
+\begin{equation}
+\begin{split}
+V&=-v\left(\frac{f_0-f_2}{f_0+f_2}\right)\\
+ &=-1500\mathrm{m/s}\cdot\left(\frac{5000\mathrm{Hz}-5040\mathrm{Hz}}{5000\mathrm{Hz}+5040\mathrm{Hz}}\right)\\
+ &\approx5,98\mathrm{m/s}
+\end{split}
+\end{equation}
+\end{document}
