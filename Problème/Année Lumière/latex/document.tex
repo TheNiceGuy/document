@@ -1,0 +1,73 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage{gensymb}
+
+\makeatletter
+\DeclareRobustCommand{\cev}[1]{%
+  \mathpalette\do@cev{#1}%
+}
+\newcommand{\do@cev}[2]{%
+  \fix@cev{#1}{+}%
+  \reflectbox{$\m@th#1\vec{\reflectbox{$\fix@cev{#1}{-}\m@th#1#2\fix@cev{#1}{+}$}}$}%
+  \fix@cev{#1}{-}%
+}
+\newcommand{\fix@cev}[2]{%
+  \ifx#1\displaystyle
+    \mkern#23mu
+  \else
+    \ifx#1\textstyle
+      \mkern#23mu
+    \else
+      \ifx#1\scriptstyle
+        \mkern#22mu
+      \else
+        \mkern#22mu
+      \fi
+    \fi
+  \fi
+}
+
+\begin{document}
+\section*{Problème}
+La distance parcourue par la lumière en une année est une \textit{année-lumière}. Sachant que la vitesse de la lumière est égale à $3\times10^8\text{ m/s}$, exprimez l'année-lumière en kilomètres. La distance moyenne entre la Terre et le Soleil est appelée unité astronomique (UA) et vaut à peu près $1,5\times10^{11}\text{ m}$. Que vaut la vitesse de la lumière en UA/h? \cite{problem}
+
+\section*{Résolution}
+Pour la première question, on cherche la distance d'une année-lumière (AL). Puisque cette distance est équivalente à la distance parcourue par un objet allant à la vitesse de la lumière pendant une année, il suffit de multiplier la vitesse par le temps.
+\begin{equation*}
+\begin{split}
+\text{AL}&=\text{vitesse}\times\text{année}\\
+         &=(3\times10^8\text{ m/s})\times(60\text{ s}\cdot60\cdot24\cdot365)\\
+         &=9,46\times10^{15}\text{ m}
+\end{split}
+\end{equation*}
+
+En effet, la simplification des unités donne des mètres, une distance. Maintenant, il faut la convertir en kilomètres. Une méthode efficace est de mettre en évidence le préfixe \textit{kilo}, d'une valeur de $10^3$, de l'ordre de grandeur de la mesure. Finalement, par définition, on peut remplacer $\text{km}=10^3\text{ m}$.
+\begin{equation*}
+\begin{split}
+\text{AL}&=9,46\times10^{15}\text{ m}\\
+         &=9,46\times10^{12}\times10^{3}\text{ m}\\
+         &=9,46\times10^{12}\text{ km}
+\end{split}
+\end{equation*}
+
+Pour la deuxième question, on cherche à effectuer une conversion de mesures. Lorsqu'une dimension à plusieurs unités, il est plus claire de les exprimer en fraction :
+\begin{equation*}
+3\times10^8\text{ m/s}=\frac{3\times10^8\text{ m}}{1\text{ s}}\\
+\end{equation*}
+
+\pagebreak
+Ensuite, on peut utiliser un simple produit croisé pour effectuer le changement d'unités. On veut transformer les mètres en UA et les secondes en 1 heure. On sait qu'une UA est $1,5\times10^{11}\text{ m}$ et une heure est 3600 secondes, donc :
+\begin{alignat*}{3}
+                & & \frac{3\times10^8\text{ m}}{1\text{ s}}&=\frac{x\cdot\text{ UA}}{1\text{ h}}\\
+\Leftrightarrow & & \frac{3\times10^8\text{ m}}{1\text{ s}}&=\frac{x\cdot1,5\times10^{11}\text{ m}}{3600\text{ s}}\\
+\Leftrightarrow & &                                       x&=\frac{(3,6\times10^{11}\text{ m})\cdot(3600\text{ s})}{(1,5\times10^{11}\text{ m})\cdot(1\text{ s})}\\
+                & &                                        &=7,2
+\end{alignat*}
+
+Il est important de remarquer que la valeur de $x$ n'a pas d'unité, puisque les unitées sont simplifiés dans l'avant dernière étape. Il suffit de substituer $x$ dans la partie droite de la première étape. Donc, la vitesse de la lumière est $7,2\text{ UA/h}$.
+\section*{Bibliographie}
+\bibliographystyle{plain}
+\renewcommand{\section}[2]{}
+\bibliography{bibliography}
+\end{document}
