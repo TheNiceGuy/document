@@ -1,0 +1,198 @@
+\documentclass[11pt]{article}
+\usepackage{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage{inconsolata}
+\usepackage[backend=bibtex,style=numeric-comp]{biblatex}
+\usepackage{geometry}
+\usepackage{tikz}
+
+\usetikzlibrary{matrix}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+
+\captionsetup[table]{name=Tableau}
+\bibliography{bibliography}
+\geometry{
+	total={210mm,297mm},
+	left=1.50in,
+	right=1.50in,
+	top=1.50in,
+	bottom=1.50in,
+}
+
+\begin{document}
+\begin{titlepage}
+	\centering
+	\input{logo}\par\vspace{1cm}
+	{\scshape\LARGE Cégep de Trois-Rivières\par}
+	\vspace{1cm}
+	{\scshape\Large Projet Scientifique\par}
+	\vspace{1.5cm}
+	{\huge\bfseries Les Fonctions de Hachage\par}
+	\vspace{2cm}
+	{\Large\itshape Gabriel-Andrew Pollo-Guilbert\par}
+	\vfill
+	Travail remis à\par
+	Sylvain \textsc{Marcoux}
+	\vfill
+	{\large\today\par}
+\end{titlepage}
+
+\section{La Fonction de Hachage}
+Une fonction de hachage permet de calculer une empreinte mathématique à partir d'un ensemble de données. Soit $S$ un ensemble de nombres entiers et $S_{n}$ l'élément $n$ dans cet ensemble, alors $h(S)$ est une fonction de hachage si elle retourne un nombre entier.
+
+Selon cette définition, on pourrait définir une telle fonction $h(S)$ comme la somme des élèments d'un ensemble :
+\begin{equation}\label{simple}
+h(S)=\displaystyle\sum_{n=0}^{|S|}S_{n},
+\end{equation}
+où $|S|$ dénote la cardinalité de l'ensemble $S$.
+
+\subsection{La propagation d'erreurs}
+Selon un but précis, il est souvent préférable d'avoir une fonction de hachage ayant certaines propriétés. En général, une telle fonction doit avoir la propriété de propager une erreur. Il en résulte que l'empreinte générée diffère beaucoup si un élèment est altéré.
+
+Soit une fonction de hachage $h(S)$ propageant une erreur, et $A$ et $B$ des ensembles identiques avec un seul élément différent, alors $h(A)$ doit être considérablement différent de $h(B)$.
+
+La fonction en \eqref{simple} n'a pas une telle propriété, car un chiffre mal transmis dans un élèment peut au maximum affecter deux positions décimales.
+\begin{table}[H]
+  \centering
+  \caption{propagation peu efficace d'une erreur dans \eqref{simple}}
+  \begin{tabular}{cc}
+      \Xhline{2\arrayrulewidth}
+      \textbf{Ensemble}
+    & \textbf{Empreinte}\\
+      \Xhline{2\arrayrulewidth}
+      $\{1,2,3,...,37,...,100\}$
+    & $5050$\\
+      $\{1,2,3,...,\mathbf{4}7,...,100\}$
+    & $50\mathbf{6}0$\\
+      $\{1,2,3,...,3\mathbf{6},...,100\}$
+    & $50\mathbf{49}$\\
+      \Xhline{2\arrayrulewidth}
+  \end{tabular}
+\end{table}
+
+Les fonctions de hachage couramment utilisées ont tous cette propriété. Cela permet de confirmer si l'ensemble ou l'empreinte fut mal transmise. Si l'empreinte n'est pas bien reçu, alors l'empreinte va rester similaire. Si l'ensemble est mal reçu, alors l'empreinte va être totalement différente.
+
+\begin{table}[H]
+  \centering
+  \caption{propagation efficace d'une erreur dans les algorithmes standards}
+  \begin{tabular}{lccc}
+      \Xhline{2\arrayrulewidth}
+      \multirow{2}{*}{\textbf{Message}}
+    & \multicolumn{3}{c}{\textbf{Algorithme}}\\
+      \cline{2-4}
+    & \textbf{MD5}
+    & \textbf{CRC32}
+    & \textbf{SHA512}\\
+      \Xhline{2\arrayrulewidth}
+      \texttt{Fonction}
+    & \texttt{24A1B0 ... 237288}
+    & \texttt{DE616B0B}
+    & \texttt{E3545D ... 93C30E}\\
+      \texttt{Fonc\textbf{T}ion}
+    & \texttt{56CA42 ... FE452B}
+    & \texttt{B623E2D2}
+    & \texttt{6E40C9 ... 69870C}\\
+      \texttt{Fon\textbf{d}tion}
+    & \texttt{22BE03 ... 6AD563}
+    & \texttt{36046ECB}
+    & \texttt{6A94C9 ... 877189}\\
+      \Xhline{2\arrayrulewidth}
+  \end{tabular}
+\end{table}
+
+\subsection{Les collisions}
+Un autre problème avec \eqref{simple} est qu'il est facile de générer deux ensembles ayant une même empreinte. Une telle situation est appelée une collision. Soit $A$ et $B$ des ensembles, alors $A$ est en collision avec $B$ si $h(A)=h(B)$.
+
+Il est possible de réduire la probabilité que deux ensembles entrent en collision en définissant une fonction plus complexe. Entre autres, l'ajout d'un opérateur modulo dans la somme tel que
+\begin{equation}\label{mod}
+h(S)=\displaystyle\sum_{n=0}^{|S|}S_{n}\bmod{m},
+\end{equation}
+où $m\in\mathds{Z}$, peut diminuer le risque de collision. Malgré l'ajout de complexité, il encore possible de générer une collision dans \eqref{mod}, à l'aide de la théorie des nombres, dans un temps résonnable.
+
+Une fonction de hachage où chaque ensemble est relié à une empreinte unique est dite parfaite. Soit $F$ une famille d'ensemble et $F_{n}$ l'ensemble $n$ dans cet famille, alors $I$ est l'ensemble d'empreinte créé par $h(F_{n})$, $\forall F_{n}\in F$. Une fonction $h(F_{n})$ est parfaite si et seulement si $F$ est en injection avec $I$ de sorte qu'il n'y ait aucune collision.
+
+\subsection{La résistance aux collisions}
+La majorité des fonctions de hachage utilisées retournent un résultat d'une longueur fixe. Donc, la quantité d'empreinte possible est limitée, tandis que l'ensemble peut être d'une cardinalité arbitraire. Alors, il est inévitable qu'il y ait une infinité de collisions.\footnote{Cette conclusion provient du principe des tiroirs. Soit $A$ et $B$ des ensembles où $|A|>|B|$, et une fonction $h:A\mapsto B$. Alors, il existe au moins deux antécédents à un élèment de $B$.\cite{tiroir}}
+
+Hors, la problématique de la collision ne provient pas du fait qu'elles existent, mais du fait qu'elles peuvent être générées, ou trouvées. Alors, une fonction de hachage est dite résistante aux collision s'il est difficile de trouver une collision dans un temps résonnable.
+
+\subsection{Utilisation des fonctions de hachage}
+La sécurité digitale dépend de la résistance aux collisions. En effet, les bases de données enregistrent seulement l'empreinte des mots de passe.\footnote{Il y a eu des incidents où une base de données enregistrait les mots de passe sous texte brute. Hors, c'est une pratique qui ne devrait jamais être utilisée dans le cas où un pirate accèdait au serveur.\cite{PW1}\cite{PW2}} Cela empêche l'administrateur, un employé ou a un pirate d'avoir accès aux mots de passe. Si la fonction utilisée ne résiste pas aux collisions, alors il est facile de recouvrir le mot de passe à partir de l'empreinte.
+
+Les fonctions de hachage sont aussi utilisées pour vérifier la signature d'un fichier. Un pirate ayant accès à un serveur peut remplacer un fichier par un programme malveillant. Donc, l'utilisateur téléchargeant à partir de ce serveur est à risque. Afin de vérifier que le fichier provient d'une source fiable, comme le développeur d'un programme, il est souvent recommandé de vérifier l'empreinte du fichier avec celle fournit par le développeur.\footnote{Cette vérification est automatique dans les systèmes d'exploitations ayant recours à un répertoire de logiciel signé tel que iOS (\textit{App Store}), Android (\textit{Google Play}) ou les multitudes de variantes UNIX (\textit{apt-get}, \textit{pacman}, \textit{portage}, \textit{pkg}, \textit{yum}, \textit{brew}, etc).}
+ Encore ici, la résistance aux collisions est une propriété requise à la fonction qui hachera le fichier.
+
+Finalement, une fonction de hachage peut être utilisée pour simplement vérifier si un message ou un fichier fut bien transmis sans tenir compte de la validité de la source. Dans un tel cas, la résistance aux collisions n'est pas requise. Dans la majorité des cas, les fonctions de hachage devront avoir la propriété de propager une erreur.
+
+\section{L'algorithme MD5}
+MD5 (\textit{Message Digest 5}) est une fonction de hachage utilisée dans le domaine informatique afin d'obtenir l'empreinte d'un fichier ou d'un mot de passe. Elle a été publiée en 1992 par Ronald Riverst avec le but d'être le plus possible résistante aux collisions.\cite{rfc1321}
+
+Ce n'est que quelques années plus tard, en 1996, qu'une première vulnérabilité fut découverte. En 2004, une attaque complète fut développée afin de générer des collisions dans un temps résonnable.\cite{md5flaw}
+
+Aujourd'hui, l'algorithme n'est pas recommandé dans les situations où la sécurité est une priorité, comme dans les bases de données, mais elle reste très utilisée afin de vérifier un transfert d'information. Ses grandes puissances sont qu'elle est simple, rapide et optimisée pour les ordinateurs 32-bits.\cite{rfc1321}
+
+\subsection{Algorithme}
+Soit un ensemble $M$ binaire d'une taille $|M|$, où $M$ peut être la représentation binaire d'un message. L'algorithme se divise en deux étapes : on étend le message et on transforme le message par bloc de 512-bits.
+\begin{figure}[H]
+  \centering
+  \input{pad_01}
+\end{figure}
+
+\subsection{Extension du message}
+Puisque les transformations sont appliquées par bloc de 512-bits, il faut s'assurer que $|M|$ soit un multiple de 512. Un premier bit d'une valeur de 1 est ajouté à la fin du message. Ensuite, une quantité $b$ de bits nulles sont ajouté afin que $|M|+b\equiv448\mod512$.\footnote{La plus petite valeur qu'un ordinateur 32-bits peut manipuler directement est 8-bits. Donc, $|M|$ est un multiple de 8. Il est plus efficace d'ajouter $128_{10}=80_{16}=1000\,0000_{2}$ que d'ajouter 1 et et ensuite les 0s.}
+
+\begin{figure}[H]
+  \centering
+  \input{pad_02}
+\end{figure}
+
+Après ces étapes, il manque 64-bits afin que $|M|+b$ soit un multiple de 512. Les 64-bits suivants sont comblés par l'ajout de $|M|$ au message. La plus grande taille possible à ajouter est donc de $2^{64}$. Si $|M|>2^{64}$, alors seulement les 64 premiers bits de $|M|$ sont ajoutés. Finalement, la taille résultante $|M|+b+64$ est un multiple de 512.
+
+\begin{figure}[H]
+  \centering
+  \input{pad_03}
+\end{figure}
+
+\subsection{Transformation du message}
+L'empreinte retournée par l'algorithme est d'une longueur de 128-bits. Elle est divisée en 4 registres de 32-bits : $A$, $B$, $C$ et $D$. Chaque régistre est initialisé à une valeur précise prédéfinie. L'algorithme spécifie 4 fonctions auxiliaires sur les registres :
+\begin{equation*}
+\begin{split}
+F(B, C, D)&=(B\wedge C)\vee(\neg B\wedge D)\\
+G(B, C, D)&=(B\wedge D)\vee(C\wedge\neg D)\\
+H(B, C, D)&=B\oplus C\oplus D\\
+I(B, C, D)&=C\oplus (B\vee\neg D)\\
+\end{split}
+\end{equation*}
+
+Pour chaque bloc $M_{512n}$ de 512-bits, où $n\in\mathds{N}$, 64 itérations sont effectuées sur les registres avec une fonction de la forme :
+\begin{equation*}
+f(A, B, g(B, C, D), i, j)=B+[A+g(B, C, D)+S_{i}+M_{512n+j}]\lll R_{i}
+\end{equation*}
+où $i,j\in\mathds{N}$ varient selon une séquence prédéterminée, $g(B, C, D)$ est une fonction auxiliaire, $\lll n$ dénote une rotation circulaire de $n$ bits vers la gauche et, $S$ et $R$ sont des ensembles d'entier positif prédéterminés.
+
+Une fois cette fonction calculée, on procède à une permutation des registres tel que $A=D$, $B=A$, $C=B$ et $D=C$. Finalement, on remplace $B$ par le résultat de la fonction tel que $B=f(A, B, g(B, C, D), i, j)$.
+\begin{figure}[H]
+  \centering
+  \caption{une itération d'une transformation MD5}
+  \includestandalone{md5}
+\end{figure}
+
+Finalement, l'empreinte est générée en écrivant les registres dans l'ordre, mais les octets les moins significatifs de la gauche à droite comme dans la prochaine figure.
+\begin{figure}[H]
+  \centering
+  \caption{manipulation des octets}
+  \makebox[\textwidth]{\input{byte}}
+\end{figure}
+
+\printbibliography
+
+\end{document}

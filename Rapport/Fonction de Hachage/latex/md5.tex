@@ -1,0 +1,97 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usetikzlibrary{matrix}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+
+\begin{document}
+\begin{tikzpicture}
+\tikzset{
+feed/.style = {rectangle,draw,
+               minimum width=2cm,
+               minimum height=1cm,
+               outer xsep=-0.5cm}
+}
+
+\matrix[column sep=-\pgflinewidth,row sep=0.7cm] {
+  & \node[feed] (FA) {$A$}; 
+  & \node[feed] (FB) {$B$};
+  & \node[feed] (FC) {$C$};
+  & \node[feed] (FD) {$D$};
+  \\
+  & \node[rectangle,draw] (A) {$+$};
+  & \coordinate (F1);
+  & \coordinate (F2);
+  & \coordinate (F3);
+  \\
+    \node (I2) {$M_{512n+j}$};
+  & \node[rectangle,draw] (B) {$+$};
+  \\
+    \node (I3) {$S_{i}$};
+  & \node[rectangle,draw] (C) {$+$};
+  \\
+    \node (I4) {$R_{i}$};
+  & \node[rectangle,draw] (D) {$\lll$};
+  \\
+  & \node[rectangle,draw] (E) {$+$};
+  & \coordinate (I5);
+  \\
+  & \coordinate (P1A);
+  & \coordinate (P1B);
+  & \coordinate (P1C);
+  & \coordinate (P1D);
+  \\
+  & \coordinate (P2A);
+  & \coordinate (P2B);
+  & \coordinate (P2C);
+  & \coordinate (P2D);
+  \\
+  & \node[feed] (OA) {$A$}; 
+  & \node[feed] (OB) {$B$};
+  & \node[feed] (OC) {$C$};
+  & \node[feed] (OD) {$D$};
+  & \node {\phantom{$M_{512n+j}$}};
+  \\
+};
+
+\node[rectangle,draw,right=5mm of A,minimum width=8mm, minimum height=8mm] (F) {$g$};
+\coordinate[below = 2mm of F1] (F1);
+\coordinate[below = 0mm of F2] (F2);
+\coordinate[above = 2mm of F3] (F3);
+
+\draw[->] (FA)  edge     (A) 
+          (A)   edge     (B) 
+          (B)   edge     (C) 
+          (C)   edge     (D) 
+          (D)   edge     (E)
+     [-]  (E)   edge     (P1A)
+          (P1A) edge     (P2B)
+     [-]  (P2B) edge[->] (OB);
+\draw[-]  (FB)  edge     (P1B)
+         (P1B)  edge     (P2C)
+         (P2C)  edge[->] (OC);
+\draw[-]  (FC)  edge     (P1C)
+         (P1C)  edge     (P2D)
+         (P2D)  edge[->] (OD);
+\draw[-]  (FD)  edge     (P1D)
+         (P1D)  edge     (P2A)
+         (P2A)  edge[->] (OA);
+\draw[->] (I2) edge     (B);
+\draw[->] (I3) edge     (C);
+\draw[->] (I4) edge     (D);
+\draw[-]  (I5) edge[->] (E);
+
+\draw[-] (F)  edge[->] (A);
+\draw[-] (F1) edge[->] ([yshift=-2mm]F.east);
+\draw[-] (F2) edge[->] ([yshift= 0mm]F.east);
+\draw[-] (F3) edge[->] ([yshift= 2mm]F.east);
+
+\draw[fill] (I5) circle (0.5mm);
+\draw[fill] (F1) circle (0.5mm);
+\draw[fill] (F2) circle (0.5mm);
+\draw[fill] (F3) circle (0.5mm);
+\end{tikzpicture}
+\end{document}
