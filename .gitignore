@@ -5,6 +5,5 @@
 *.swp
 *.bbl
 *.blg
-*.bib
 *.xml
 !document.pdf
