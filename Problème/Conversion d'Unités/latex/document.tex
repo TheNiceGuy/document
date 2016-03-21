@@ -1,0 +1,82 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[frenchb]{babel}
+\usepackage{geometry}
+\geometry{
+	letterpaper,
+	left=38mm,
+	right=38mm,
+	top=38mm,
+	bottom=38mm,
+	heightrounded,
+}
+
+\begin{document}
+\section*{Problème}
+Par définition un pouce est égal à $2,54\text{ cm}$ exactement, et une verge, à 3 pieds. Transformez $100,00\text{ verges}$ en mètres; un acre ($4840\text{ verges au carré}$) en hectares ($10^4\text{ m}^2$). \cite{problem}
+
+\section*{Résolution}
+Il existe plusieurs approches à ce problème. Une méthode qui est sûre de toujours fonctionner est d'écrire l'équation mathématique qui représente la conversion pour ensuite remplacer les unités et les symboles connues. Selon le tableau 1 dans l'annexe, on peut utiliser le pouce comme unité intermédiaires afin d'obtenir les mètres.
+\begin{alignat*}{3}
+                & &                           100,00\text{ verges}&=x\text{ m}\\
+\Leftrightarrow & &                    100,00\cdot36\text{ pouces}&=x\text{ m}\\
+\Leftrightarrow & &               100,00\cdot36\cdot2,54\text{ cm}&=x\text{ m}\\
+\Leftrightarrow & &   100,00\cdot36\cdot2,54\times10^{-2}\text{ m}&=x\text{ m}\\
+\Leftrightarrow & &                                91,440\text{ m}&=x\text{ m}\\
+                & &                                              x&=91,440\\
+\end{alignat*}
+
+On cherche $x$ et il faut remarquer que cette variable ne contient pas d'unité, l'unité est à coté tout le long du calcul. Il est donc normal que la valeur de $x$ isolée n'est pas d'unité, car elles se sont simplifiés. Par contre, la réponse finale de la question doit bel et bien contenir l'unité : $91,440$ m.\\
+
+D'une manière similaire, on peut convertir l'acre en hectares en utilisant la même méthode.
+\begin{alignat*}{3}
+                & &                                  1\text{ acre}&=x\text{ hectares}\\
+\Leftrightarrow & &                           4840\text{ verges}^2&=x\cdot(10^4\text{ m}^2)\\
+\Leftrightarrow & &                  4840\cdot(36\text{ pouces})^2&=x\cdot(10^4\text{ m}^2)\\
+\Leftrightarrow & &             4840\cdot(36\cdot2,54\text{ cm})^2&=x\cdot(10^4\text{ m}^2)\\
+\Leftrightarrow & & 4840\cdot(36\cdot2,54\times10^{-2}\text{ m})^2&=x\cdot(10^4\text{ m}^2)\\
+\Leftrightarrow & &                   4840\cdot(0,9144\text{ m})^2&=x\cdot(10^4\text{ m}^2)\\
+\Leftrightarrow & &                              (4046\text{ m}^2)&=x\cdot(10^4\text{ m}^2)\\
+                & &                                              x&=\frac{4046\text{ m}^2}{10^4\text{ m}^2}\\
+                & &                                               &=0,4647\\
+\end{alignat*}
+
+Il ne faut pas faire l'erreur d'oublier le carré au $0,9144$. La réponse est donc $0,4647$ hectares.
+
+\section*{Annexe}
+\begin{center}
+\begin{tabular}[t]{cc}
+  \begin{tabular}[t]{c}
+    \textbf{Tableau 1 : Conversions Utiles}\\
+    \hline
+  \end{tabular}&
+   \begin{tabular}[t]{c}
+    \textbf{Tableau 2 : Préfixes}\\
+    \hline
+  \end{tabular}\\
+  \begin{tabular}[t]{cc} 
+    1 pied  & 12 pouces \\ 
+    1 verge & 36 pouces\\ 
+  \end{tabular}&
+  \begin{tabular}[t]{rcc} 
+    mega-  &              M  & $10^{6}$\\ 
+    kilo-  &              k  & $10^{3}$\\ 
+           &                 & $10^{0}$\\ 
+    déci-  &              d  & $10^{-1}$\\
+    centi- &              c  & $10^{-2}$\\ 
+    milli- &              m  & $10^{-3}$\\ 
+    micro- & $\mathrm{\mu}$  & $10^{-6}$\\ 
+    nano-  &              n  & $10^{-9}$\\ 
+  \end{tabular}
+\end{tabular}
+\end{center}
+
+\section*{Bibliographie}
+\bibliographystyle{plain}
+\renewcommand{\section}[2]{}
+\bibliography{bibliography}
+\end{document}
