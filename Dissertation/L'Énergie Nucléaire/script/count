@@ -11,7 +11,7 @@ if __name__ == "__main__":
     "On enlève les anciens compteurs."
     for line in sys.stdin.readlines():
         text += re.sub(r"\\mots{[^}]*}", " ", line)
-
+    
     "On boucle pour chaque lettre."
     for ch in text:
         print(ch, end="")
