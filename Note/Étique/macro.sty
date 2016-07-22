@@ -1,0 +1,29 @@
+\usepackage{macro}
+
+\setlength{\parindent}{0pt}
+\newenvironment{nscenter}
+ {\parskip=0pt\par\nopagebreak\centering}
+ {\par\noindent\ignorespacesafterend}
+
+\newcommand{\definition}[2] {
+  \begin{center}
+    \begin{tabularx}{\textwidth}{@{}r|X@{}}
+      \textbf{#1} & #2\\
+    \end{tabularx}
+  \end{center}
+}
+
+\newcommand{\tabletitle}[2] {
+  {\centering\large\textbf{#1} : #2\\}
+}
+
+\renewcommand{\quote}[2] {
+  \begin{center}
+    «#1»\\
+    \hfill --- \textit{#2}
+  \end{center}
+}
+
+\newcommand{\exemple}[1] {
+  \textit{Exemple. #1}
+}

@@ -16,14 +16,14 @@ if __name__ == "__main__":
     for ch in text:
         print(ch, end="")
 
-        "Un apostrophe définie une séparation entre deux mots."
-        if(ch == '\''):
-            count += 1
-
-            "On regarde si le compteur rendu à un multiple de 50."
-            "On va split la phrase à la prochaine espace."
-            if(count%50 == 0):
-                insert = True
+#        "Un apostrophe définie une séparation entre deux mots."        
+#            if(ch == '\''):
+#            count += 1
+#
+#            "On regarde si le compteur rendu à un multiple de 50."
+#            "On va split la phrase à la prochaine espace."
+#            if(count%50 == 0):
+#                insert = True
 
         "Un espace définit une séparation entre deux mots."
         if(ch == ' '):

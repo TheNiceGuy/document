@@ -1,0 +1,39 @@
+\documentclass{standalone}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{tikz}
+\usepackage{esvect}
+\usetikzlibrary{arrows}
+
+\begin{document}
+\begin{tikzpicture}[x=2.25cm,y=2.2cm,z=1.6cm,>=stealth]
+\coordinate (A) at (1.7,1.2,1.0);
+\coordinate (B) at (0.7,0.8,-0.7);
+% The axes
+\draw[->] (xyz cs:x=-2.5) -- (xyz cs:x=2.5) node[above] {$x$};
+\draw[->] (xyz cs:y=-2.5) -- (xyz cs:y=2.5) node[right] {$z$};
+\draw[->] (xyz cs:z=-2.5) -- (xyz cs:z=2.5) node[above] {$y$};
+
+% The thin ticks
+\foreach \coo in {-2.4,-1.9,...,2.4} {
+  \draw (\coo,-1.5pt) -- (\coo,1.5pt);
+  \draw (-1.0pt,\coo) -- (1.0pt,\coo);
+  \draw (xyz cs:y=-0.05pt,z=\coo) -- (xyz cs:y=0.05pt,z=\coo);
+}
+
+% The vector
+\draw[->] (xyz cs:x=0.0,y=0.0,z=0.0) -- (xyz cs:x=1.7,y= 1.2,z=1.1);
+\draw[->] (xyz cs:x=0.0,y=0.0,z=0.0) -- (xyz cs:x=0.7,y=0.8,z=-0.7);
+
+\node[inner sep=1.5pt,label={above:$\vv{OA}$}] at (A) {};
+\draw[dashed] (xyz cs:x=0.0,y=0.0,z=1.1) -- node[below] {$2\cos30\degree$} (xyz cs:x=1.7,y=0.0,z=1.1);
+\draw[dashed] (xyz cs:x=1.7,y=0.0,z=0.0) -- node[right] {$2\sin30\degree$} (xyz cs:x=1.7,y=0.0,z=1.1);
+\draw[dashed] (xyz cs:x=1.7,y=0.0,z=1.1) -- node[right] {$1.2$} (xyz cs:x=1.7,y=1.2,z=1.1);
+
+\node[inner sep=1.5pt,label={above:$\vv{OB}$}] at (B) {};
+\draw[dashed] (xyz cs:x=0.0,y=0.0,z=-0.7) -- node[below] {$1\cos315\degree$} (xyz cs:x=0.7,y=0.0,z=-0.7);
+\draw[dashed] (xyz cs:x=0.7,y=0.0,z= 0.0) -- node[right] {$1\cos315\degree$} (xyz cs:x=0.7,y=0.0,z=-0.7);
+\draw[dashed] (xyz cs:x=0.7,y=0.0,z=-0.7) -- node[above right]  {$0.8$} (xyz cs:x=0.7,y=0.8,z=-0.7);
+\end{tikzpicture}
+\end{document}

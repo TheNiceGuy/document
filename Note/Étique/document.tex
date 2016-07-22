@@ -1,0 +1,51 @@
+\documentclass[11pt]{article}
+\usepackage{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[frenchb]{babel}
+\usepackage{tabularx}
+\usepackage{tabulary}
+\usepackage{amsmath}
+\usepackage{makecell}
+\usepackage{macro}
+\usepackage{geometry}
+\usepackage{footnote}
+
+\makesavenoteenv{tabular}
+\let\EndItemize\enditemize
+\def\enditemize{\EndItemize\bigskip}
+
+%TODO Ajouter les méthodes pour résoudre selon Kant.
+\geometry{
+	total={210mm,297mm},
+	left=34mm,
+	right=34mm,
+	top=34mm,
+	bottom=34mm,
+}
+
+\begin{document}
+\section*{Cours 1}
+\input{cours_1}\pagebreak
+
+\section*{Cours 2}
+\input{cours_2}\pagebreak
+
+\section*{Cours 3}
+\input{cours_3}\pagebreak
+
+\section*{Cours 4}
+\input{cours_4}\pagebreak
+
+\section*{Cours 5}
+\input{cours_5}\pagebreak
+
+\section*{Cours 6}
+\input{cours_6}\pagebreak
+
+\section*{Cours 7}
+\input{cours_7}\pagebreak
+
+\section*{Cours 8}
+\input{cours_8}\pagebreak
+
+\end{document}
